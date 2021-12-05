@@ -1,16 +1,9 @@
 import Box from "@mui/material/Box";
-import { useQuery } from "react-query";
-import CircularProgress from "@mui/material/CircularProgress";
 
-import { getBooks } from "../../api";
 import Books from "../Books/Books";
 
 const Home = () => {
-  const { data, status } = useQuery("books", getBooks);
-
-  return status === "loading" ? (
-    <CircularProgress />
-  ) : (
+  return (
     <Box
       sx={{
         width: "100%",
@@ -19,7 +12,7 @@ const Home = () => {
         flexWrap: "wrap",
       }}
     >
-      <Books books={data} />
+      <Books />
     </Box>
   );
 };

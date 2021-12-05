@@ -4,10 +4,10 @@ import CardContent from "@mui/material/CardContent";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
-import { useMutation, useQueryClient } from "react-query";
+import { useQuery, useMutation, useQueryClient } from "react-query";
 import CircularProgress from "@mui/material/CircularProgress";
 
-import { deleteBook } from "../../api";
+import { getBooks, deleteBook } from "../../api";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -25,20 +25,18 @@ interface Book {
   date: string;
 }
 
-interface Props {
-  books: Book[];
-}
-
-const Books = ({ books }: Props) => {
+const Books = () => {
   const classes = useStyles();
+
+  const { data: books, status: getStatus } = useQuery("books", getBooks);
 
   const queryClient = useQueryClient();
 
-  const { mutateAsync, status } = useMutation(deleteBook);
+  const { mutateAsync, status: deleteStatus } = useMutation(deleteBook);
 
   return (
     <>
-      {status === "loading" ? (
+      {getStatus === "loading" || deleteStatus === "loading" ? (
         <CircularProgress />
       ) : (
         books.map((book: Book) => {
