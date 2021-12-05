@@ -4,6 +4,10 @@ import CardContent from "@mui/material/CardContent";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
+import { useMutation, useQueryClient } from "react-query";
+import CircularProgress from "@mui/material/CircularProgress";
+
+import { deleteBook } from "../../api";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -28,37 +32,53 @@ interface Props {
 const Books = ({ books }: Props) => {
   const classes = useStyles();
 
+  const queryClient = useQueryClient();
+
+  const { mutateAsync, status } = useMutation(deleteBook);
+
   return (
     <>
-      {books.map((book: Book) => {
-        const { id, title, first_name, last_name } = book;
+      {status === "loading" ? (
+        <CircularProgress />
+      ) : (
+        books.map((book: Book) => {
+          const { id, title, first_name, last_name } = book;
 
-        return (
-          <Card
-            className={classes.book}
-            key={id}
-            sx={{ width: 275, display: "flex", flexDirection: "column" }}
-          >
-            <CardContent sx={{ flexGrow: 1 }}>
-              <Typography variant="h5" component="div">
-                {title}
-              </Typography>
+          const handleDelete = async () => {
+            await mutateAsync(id);
 
-              <Typography
-                sx={{ fontSize: 14 }}
-                color="text.secondary"
-                gutterBottom
-              >
-                By: {first_name} {last_name}
-              </Typography>
-            </CardContent>
+            queryClient.invalidateQueries();
+          };
 
-            <CardActions>
-              <Button size="small">Delete</Button>
-            </CardActions>
-          </Card>
-        );
-      })}
+          return (
+            <Card
+              className={classes.book}
+              key={id}
+              sx={{ width: 275, display: "flex", flexDirection: "column" }}
+            >
+              <CardContent sx={{ flexGrow: 1 }}>
+                <Typography variant="h5" component="div">
+                  {title}
+                </Typography>
+
+                <Typography
+                  sx={{ fontSize: 14 }}
+                  color="text.secondary"
+                  gutterBottom
+                >
+                  By: {first_name} {last_name}
+                </Typography>
+              </CardContent>
+
+              <CardActions>
+                <Button size="small" onClick={handleDelete}>
+                  Delete
+                </Button>
+              </CardActions>
+            </Card>
+          );
+        })
+      )}
     </>
   );
 };

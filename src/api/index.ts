@@ -7,3 +7,11 @@ export const getBooks = async () => {
 
   return data;
 };
+
+export const deleteBook = async (id: string) => {
+  await fetch(`${api}/books/${id}`, {
+    method: "DELETE",
+  });
+
+  return true;
+};
