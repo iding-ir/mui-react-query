@@ -1,8 +1,29 @@
 {
   "name": "mui-react-query",
   "version": "0.1.0",
-  "private": true,
+  "description": "MUI react-query application.",
+  "keywords": [
+    "React",
+    "Typescript",
+    "MUI",
+    "react-query"
+  ],
+  "author": {
+    "name": "Aydin Ghane Kh.",
+    "email": "aydin.ghane.kh@gmail.com",
+    "url": "http://iding.ir"
+  },
+  "license": "ISC",
+  "main": "./index",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iding-ir/mui-react-query.git"
+  },
+  "bugs": {
+    "url": "https://github.com/iding-ir/mui-react-query/issues"
+  },
   "dependencies": {
+    "@mui/material": "^5.2.2",
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
@@ -10,8 +31,10 @@
     "@types/node": "^12.0.0",
     "@types/react": "^17.0.0",
     "@types/react-dom": "^17.0.0",
+    "node-sass": "^6.0.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-query": "^3.34.0",
     "react-scripts": "4.0.3",
     "typescript": "^4.1.2",
     "web-vitals": "^1.0.1"
