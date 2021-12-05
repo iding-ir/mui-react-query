@@ -5,6 +5,9 @@ import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
 import { useForm } from "react-hook-form";
 import { useMutation, useQueryClient } from "react-query";
 
+import { postBook } from "../../api";
+import { Book } from "../Books/Books";
+
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     input: {
@@ -16,14 +19,9 @@ const useStyles = makeStyles((theme: Theme) =>
 const Create = () => {
   const classes = useStyles();
 
-  // const queryClient = useQueryClient();
+  const queryClient = useQueryClient();
 
-  // const { mutateAsync } = useMutation(postBook, {
-  //   onSuccess: () => {
-  //     // Invalidate and refetch
-  //     queryClient.invalidateQueries("todos");
-  //   },
-  // });
+  const { mutateAsync } = useMutation(postBook);
 
   const {
     register,
@@ -31,7 +29,11 @@ const Create = () => {
     formState: { errors },
   } = useForm();
 
-  const onSubmit = (data: any) => console.log(data);
+  const onSubmit = async (book: Partial<Book>) => {
+    await mutateAsync(book);
+
+    queryClient.invalidateQueries("books");
+  };
 
   return (
     <Box component="form" onSubmit={handleSubmit(onSubmit)}>

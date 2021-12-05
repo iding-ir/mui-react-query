@@ -17,7 +17,7 @@ const useStyles = makeStyles((theme: Theme) =>
   })
 );
 
-interface Book {
+export interface Book {
   id: string;
   title: string;
   first_name: string;
@@ -45,7 +45,7 @@ const Books = () => {
           const handleDelete = async () => {
             await mutateAsync(id);
 
-            queryClient.invalidateQueries();
+            queryClient.invalidateQueries("books");
           };
 
           return (
