@@ -56,6 +56,7 @@ const Form = ({ defaultValues, onSubmit, isLoading }: Props) => {
         fullWidth
         label="Title"
         variant="outlined"
+        InputLabelProps={{ shrink: true }}
         {...register("title", { required: true })}
       />
 
@@ -66,6 +67,7 @@ const Form = ({ defaultValues, onSubmit, isLoading }: Props) => {
         fullWidth
         label="First Name"
         variant="outlined"
+        InputLabelProps={{ shrink: true }}
         {...register("firstName", { required: true })}
       />
 
@@ -76,6 +78,7 @@ const Form = ({ defaultValues, onSubmit, isLoading }: Props) => {
         fullWidth
         label="Last Name"
         variant="outlined"
+        InputLabelProps={{ shrink: true }}
         {...register("lastName", { required: true })}
       />
 
