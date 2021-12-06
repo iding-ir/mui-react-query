@@ -26,9 +26,9 @@ const Edit = () => {
 
   const queryClient = useQueryClient();
 
-  const { mutateAsync } = useMutation(editItem);
+  const { mutateAsync, isLoading } = useMutation(editItem);
 
-  const { data, isLoading } = useQuery("item", () => getItem(id as string));
+  const { data } = useQuery("item", () => getItem(id as string));
 
   const onSubmit = async (item: Partial<IItem>) => {
     await mutateAsync({ ...item, id });
