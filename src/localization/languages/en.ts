@@ -17,6 +17,10 @@ const localization = {
     lastName: "Last Name",
     submit: "Submit",
   },
+  Edit: {
+    notFound: "Item not found!",
+    goBack: "Go back...",
+  },
 };
 
 export default localization;
