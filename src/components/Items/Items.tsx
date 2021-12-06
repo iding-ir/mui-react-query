@@ -8,45 +8,45 @@ import { useQuery, useMutation, useQueryClient } from "react-query";
 import CircularProgress from "@mui/material/CircularProgress";
 import { useNavigate } from "react-router-dom";
 
-import { getBooks, deleteBook } from "../../api";
+import { getItems, deleteItem } from "../../api";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
-    book: {
+    item: {
       margin: "1rem",
     },
   })
 );
 
-export interface Book {
+export interface Item {
   id: string;
   title: string;
-  first_name: string;
-  last_name: string;
+  firstName: string;
+  lastName: string;
   date: string;
 }
 
-const Books = () => {
+const Items = () => {
   const classes = useStyles();
 
   const navigate = useNavigate();
 
-  const { data: books, status: getStatus } = useQuery("books", getBooks);
+  const { data: items, status: getStatus } = useQuery("items", getItems);
 
   const queryClient = useQueryClient();
 
-  const { mutateAsync, status: deleteStatus } = useMutation(deleteBook);
+  const { mutateAsync, status: deleteStatus } = useMutation(deleteItem);
 
   return (
     <>
       {getStatus === "loading" || deleteStatus === "loading" ? (
         <CircularProgress />
       ) : (
-        books.map((book: Book) => {
-          const { id, title, first_name, last_name } = book;
+        items.map((item: Item) => {
+          const { id, title, firstName, lastName } = item;
 
           const handleEdit = async () => {
-            queryClient.invalidateQueries("book");
+            queryClient.invalidateQueries("item");
 
             navigate(`/edit/${id}`);
           };
@@ -54,12 +54,12 @@ const Books = () => {
           const handleDelete = async () => {
             await mutateAsync(id);
 
-            queryClient.invalidateQueries("books");
+            queryClient.invalidateQueries("items");
           };
 
           return (
             <Card
-              className={classes.book}
+              className={classes.item}
               key={id}
               sx={{ width: 275, display: "flex", flexDirection: "column" }}
             >
@@ -73,7 +73,7 @@ const Books = () => {
                   color="text.secondary"
                   gutterBottom
                 >
-                  By: {first_name} {last_name}
+                  By: {firstName} {lastName}
                 </Typography>
               </CardContent>
 
@@ -94,4 +94,4 @@ const Books = () => {
   );
 };
 
-export default Books;
+export default Items;

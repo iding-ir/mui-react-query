@@ -1,8 +1,8 @@
 import { useQuery, useMutation, useQueryClient } from "react-query";
 import { useParams, useNavigate } from "react-router-dom";
 
-import { getBook, editBook } from "../../api";
-import { Book } from "../Books/Books";
+import { getItem, editItem } from "../../api";
+import { Item } from "../Items/Items";
 import Form from "../Form/Form";
 
 const Edit = () => {
@@ -12,14 +12,14 @@ const Edit = () => {
 
   const queryClient = useQueryClient();
 
-  const { mutateAsync } = useMutation(editBook);
+  const { mutateAsync } = useMutation(editItem);
 
-  const { data, isLoading } = useQuery("book", () => getBook(id as string));
+  const { data, isLoading } = useQuery("item", () => getItem(id as string));
 
-  const onSubmit = async (book: Partial<Book>) => {
-    await mutateAsync({ ...book, id });
+  const onSubmit = async (item: Partial<Item>) => {
+    await mutateAsync({ ...item, id });
 
-    queryClient.invalidateQueries("books");
+    queryClient.invalidateQueries("items");
 
     navigate("/");
   };

@@ -1,8 +1,8 @@
 import { useMutation, useQueryClient } from "react-query";
 import { useNavigate } from "react-router-dom";
 
-import { postBook } from "../../api";
-import { Book } from "../Books/Books";
+import { postItem } from "../../api";
+import { Item } from "../Items/Items";
 import Form from "../Form/Form";
 
 const Create = () => {
@@ -10,14 +10,14 @@ const Create = () => {
 
   const queryClient = useQueryClient();
 
-  const { mutateAsync, isLoading } = useMutation(postBook);
+  const { mutateAsync, isLoading } = useMutation(postItem);
 
-  const onSubmit = async (book: Partial<Book>) => {
-    console.log(book);
+  const onSubmit = async (item: Partial<Item>) => {
+    console.log(item);
 
-    await mutateAsync(book);
+    await mutateAsync(item);
 
-    queryClient.invalidateQueries("books");
+    queryClient.invalidateQueries("items");
 
     navigate("/");
   };

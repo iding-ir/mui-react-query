@@ -1,35 +1,35 @@
-import { Book } from "../components/Books/Books";
+import { Item } from "../components/Items/Items";
 
 const api = process.env.REACT_APP_API;
 
-export const getBook = async (id: string) => {
-  const response = await fetch(`${api}/books/${id}`);
+export const getItem = async (id: string) => {
+  const response = await fetch(`${api}/items/${id}`);
 
   const data = await response.json();
 
   return data;
 };
 
-export const getBooks = async () => {
-  const response = await fetch(`${api}/books`);
+export const getItems = async () => {
+  const response = await fetch(`${api}/items`);
 
   const data = await response.json();
 
   return data.reverse();
 };
 
-export const deleteBook = async (id: string) => {
-  await fetch(`${api}/books/${id}`, {
+export const deleteItem = async (id: string) => {
+  await fetch(`${api}/items/${id}`, {
     method: "DELETE",
   });
 
   return true;
 };
 
-export const postBook = async (book: Partial<Book>) => {
-  const response = await fetch(`${api}/books`, {
+export const postItem = async (item: Partial<Item>) => {
+  const response = await fetch(`${api}/items`, {
     method: "POST",
-    body: JSON.stringify(book),
+    body: JSON.stringify(item),
     headers: {
       "Content-Type": "application/json",
     },
@@ -40,12 +40,12 @@ export const postBook = async (book: Partial<Book>) => {
   return data;
 };
 
-export const editBook = async (book: Partial<Book>) => {
-  console.log(book);
+export const editItem = async (item: Partial<Item>) => {
+  console.log(item);
 
-  const response = await fetch(`${api}/books/${book.id}`, {
+  const response = await fetch(`${api}/items/${item.id}`, {
     method: "PUT",
-    body: JSON.stringify(book),
+    body: JSON.stringify(item),
     headers: {
       "Content-Type": "application/json",
     },

@@ -1,6 +1,6 @@
 import Box from "@mui/material/Box";
 
-import Books from "../Books/Books";
+import Items from "../Items/Items";
 
 const Home = () => {
   return (
@@ -12,7 +12,7 @@ const Home = () => {
         flexWrap: "wrap",
       }}
     >
-      <Books />
+      <Items />
     </Box>
   );
 };

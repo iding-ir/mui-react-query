@@ -6,7 +6,7 @@ import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
 import { useForm } from "react-hook-form";
 import LinearProgress from "@mui/material/LinearProgress";
 
-import { Book } from "../Books/Books";
+import { Item } from "../Items/Items";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -17,7 +17,7 @@ const useStyles = makeStyles((theme: Theme) =>
 );
 
 interface Props {
-  defaultValues: Book | {};
+  defaultValues: Item | {};
   onSubmit: any;
   isLoading: boolean;
 }
@@ -55,20 +55,20 @@ const Form = ({ defaultValues, onSubmit, isLoading }: Props) => {
         fullWidth
         label="First Name"
         variant="outlined"
-        {...register("first_name", { required: true })}
+        {...register("firstName", { required: true })}
       />
 
-      {errors.first_name && <span>This field is required</span>}
+      {errors.firstName && <span>This field is required</span>}
 
       <TextField
         className={classes.input}
         fullWidth
         label="Last Name"
         variant="outlined"
-        {...register("last_name", { required: true })}
+        {...register("lastName", { required: true })}
       />
 
-      {errors.last_name && <span>This field is required</span>}
+      {errors.lastName && <span>This field is required</span>}
 
       {isLoading ? (
         <LinearProgress />
