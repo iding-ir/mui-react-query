@@ -13,6 +13,9 @@ import Error from "./Error";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
+    loader: {
+      margin: "1rem 0",
+    },
     input: {
       margin: "0.5rem 0 !important",
     },
@@ -79,7 +82,7 @@ const Form = ({ defaultValues, onSubmit, isLoading }: Props) => {
       <Error error={errors.lastName} field={t("Form.lastName")} />
 
       {isLoading ? (
-        <LinearProgress />
+        <LinearProgress className={classes.loader} />
       ) : (
         <Button
           className={classes.button}

@@ -1,3 +1,4 @@
+import Box from "@mui/material/Box";
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
@@ -14,6 +15,9 @@ import { IItem } from "../Items/Items";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
+    loader: {
+      margin: "1rem 0",
+    },
     item: {
       margin: "1rem",
     },
@@ -59,7 +63,7 @@ const Item = ({ item }: Props) => {
     >
       <CardContent sx={{ flexGrow: 1 }}>
         <Typography variant="h5" component="div">
-          {isLoading ? <LinearProgress /> : title}
+          {isLoading ? <LinearProgress className={classes.loader} /> : title}
         </Typography>
 
         <Typography
@@ -74,11 +78,23 @@ const Item = ({ item }: Props) => {
       </CardContent>
 
       <CardActions>
-        <Button disabled={isLoading} size="small" onClick={handleEdit}>
+        <Button
+          color="primary"
+          disabled={isLoading}
+          size="small"
+          onClick={handleEdit}
+        >
           <Trans i18nKey="Item.edit" />
         </Button>
 
-        <Button disabled={isLoading} size="small" onClick={handleDelete}>
+        <Box sx={{ width: "100%" }} />
+
+        <Button
+          color="warning"
+          disabled={isLoading}
+          size="small"
+          onClick={handleDelete}
+        >
           <Trans i18nKey="Item.delete" />
         </Button>
       </CardActions>

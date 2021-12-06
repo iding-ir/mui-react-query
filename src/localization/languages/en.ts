@@ -9,7 +9,9 @@ const localization = {
     create: "Create",
   },
   Form: {
-    required: "{{field}} is required",
+    Error: {
+      required: "{{field}} is required",
+    },
     title: "Title",
     firstName: "First Name",
     lastName: "Last Name",
