@@ -51,14 +51,22 @@ const Item = ({ item }: Props) => {
     <Card
       className={classes.item}
       key={id}
-      sx={{ width: 275, display: "flex", flexDirection: "column" }}
+      sx={{
+        width: { xs: "100%", sm: "calc(50% - 2rem)", md: "calc(25% - 2rem)" },
+        display: "flex",
+        flexDirection: "column",
+      }}
     >
       <CardContent sx={{ flexGrow: 1 }}>
         <Typography variant="h5" component="div">
           {isLoading ? <LinearProgress /> : title}
         </Typography>
 
-        <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
+        <Typography
+          sx={{ fontSize: "1rem" }}
+          color="text.secondary"
+          gutterBottom
+        >
           {isLoading ? null : (
             <Trans i18nKey="Item.author" values={{ firstName, lastName }} />
           )}

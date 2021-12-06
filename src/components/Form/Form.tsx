@@ -14,7 +14,10 @@ import Error from "./Error";
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     input: {
-      margin: "1rem 0 !important",
+      margin: "0.5rem 0 !important",
+    },
+    button: {
+      margin: "0.5rem 0 !important",
     },
   })
 );
@@ -78,7 +81,13 @@ const Form = ({ defaultValues, onSubmit, isLoading }: Props) => {
       {isLoading ? (
         <LinearProgress />
       ) : (
-        <Button fullWidth variant="contained" type="submit">
+        <Button
+          className={classes.button}
+          fullWidth
+          variant="contained"
+          type="submit"
+          size="large"
+        >
           <Trans i18nKey="Form.submit" />
         </Button>
       )}
