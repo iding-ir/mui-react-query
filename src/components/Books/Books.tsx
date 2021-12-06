@@ -6,6 +6,7 @@ import Typography from "@mui/material/Typography";
 import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
 import { useQuery, useMutation, useQueryClient } from "react-query";
 import CircularProgress from "@mui/material/CircularProgress";
+import { useNavigate } from "react-router-dom";
 
 import { getBooks, deleteBook } from "../../api";
 
@@ -28,6 +29,8 @@ export interface Book {
 const Books = () => {
   const classes = useStyles();
 
+  const navigate = useNavigate();
+
   const { data: books, status: getStatus } = useQuery("books", getBooks);
 
   const queryClient = useQueryClient();
@@ -41,6 +44,12 @@ const Books = () => {
       ) : (
         books.map((book: Book) => {
           const { id, title, first_name, last_name } = book;
+
+          const handleEdit = async () => {
+            queryClient.invalidateQueries("book");
+
+            navigate(`/edit/${id}`);
+          };
 
           const handleDelete = async () => {
             await mutateAsync(id);
@@ -69,6 +78,10 @@ const Books = () => {
               </CardContent>
 
               <CardActions>
+                <Button size="small" onClick={handleEdit}>
+                  Edit
+                </Button>
+
                 <Button size="small" onClick={handleDelete}>
                   Delete
                 </Button>

@@ -5,6 +5,7 @@ import { QueryClient, QueryClientProvider } from "react-query";
 import Layout from "./components/Layout/Layout";
 import Home from "./components/Home/Home";
 import Create from "./components/Create/Create";
+import Edit from "./components/Edit/Edit";
 
 const queryClient = new QueryClient();
 
@@ -19,6 +20,8 @@ function App() {
             <Route path="/" element={<Home />} />
 
             <Route path="/create" element={<Create />} />
+
+            <Route path="/edit/:id" element={<Edit />} />
           </Routes>
         </Layout>
       </Router>

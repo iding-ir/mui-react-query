@@ -1,77 +1,28 @@
-import Box from "@mui/material/Box";
-import TextField from "@mui/material/TextField";
-import Button from "@mui/material/Button";
-import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
-import { useForm } from "react-hook-form";
 import { useMutation, useQueryClient } from "react-query";
+import { useNavigate } from "react-router-dom";
 
 import { postBook } from "../../api";
 import { Book } from "../Books/Books";
-
-const useStyles = makeStyles((theme: Theme) =>
-  createStyles({
-    input: {
-      margin: "1rem 0 !important",
-    },
-  })
-);
+import Form from "../Form/Form";
 
 const Create = () => {
-  const classes = useStyles();
+  const navigate = useNavigate();
 
   const queryClient = useQueryClient();
 
-  const { mutateAsync } = useMutation(postBook);
-
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm();
+  const { mutateAsync, isLoading } = useMutation(postBook);
 
   const onSubmit = async (book: Partial<Book>) => {
+    console.log(book);
+
     await mutateAsync(book);
 
     queryClient.invalidateQueries("books");
+
+    navigate("/");
   };
 
-  return (
-    <Box component="form" onSubmit={handleSubmit(onSubmit)}>
-      <TextField
-        className={classes.input}
-        fullWidth
-        label="Title"
-        variant="outlined"
-        {...register("title", { required: true })}
-      />
-
-      {errors.title && <span>This field is required</span>}
-
-      <TextField
-        className={classes.input}
-        fullWidth
-        label="First Name"
-        variant="outlined"
-        {...register("first_name", { required: true })}
-      />
-
-      {errors.first_name && <span>This field is required</span>}
-
-      <TextField
-        className={classes.input}
-        fullWidth
-        label="Last Name"
-        variant="outlined"
-        {...register("last_name", { required: true })}
-      />
-
-      {errors.last_name && <span>This field is required</span>}
-
-      <Button fullWidth variant="contained" type="submit">
-        Submit
-      </Button>
-    </Box>
-  );
+  return <Form defaultValues={{}} onSubmit={onSubmit} isLoading={isLoading} />;
 };
 
 export default Create;
