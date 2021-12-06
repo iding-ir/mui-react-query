@@ -7,6 +7,7 @@ import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
 import { useMutation, useQueryClient } from "react-query";
 import LinearProgress from "@mui/material/LinearProgress";
 import { useNavigate } from "react-router-dom";
+import { Trans } from "react-i18next";
 
 import { deleteItem } from "../../api";
 import { IItem } from "../Items/Items";
@@ -58,17 +59,19 @@ const Item = ({ item }: Props) => {
         </Typography>
 
         <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
-          {isLoading ? "" : `By: ${firstName} ${lastName}`}
+          {isLoading ? null : (
+            <Trans i18nKey="Item.author" values={{ firstName, lastName }} />
+          )}
         </Typography>
       </CardContent>
 
       <CardActions>
         <Button disabled={isLoading} size="small" onClick={handleEdit}>
-          Edit
+          <Trans i18nKey="Item.edit" />
         </Button>
 
         <Button disabled={isLoading} size="small" onClick={handleDelete}>
-          Delete
+          <Trans i18nKey="Item.delete" />
         </Button>
       </CardActions>
     </Card>

@@ -2,6 +2,7 @@ import CssBaseline from "@mui/material/CssBaseline";
 import { HashRouter as Router, Routes, Route } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "react-query";
 
+import "./localization";
 import Layout from "./components/Layout/Layout";
 import Home from "./components/Home/Home";
 import Create from "./components/Create/Create";

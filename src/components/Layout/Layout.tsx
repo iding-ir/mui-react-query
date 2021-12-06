@@ -5,6 +5,7 @@ import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import { Link } from "react-router-dom";
 import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
+import { Trans } from "react-i18next";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -30,13 +31,13 @@ export default function Layout({ children }: Props) {
         <Toolbar>
           <Typography variant="h6" noWrap component="div">
             <Link className={classes.link} to="/">
-              Home
+              <Trans i18nKey="Navbar.home" />
             </Link>
           </Typography>
 
           <Typography variant="h6" noWrap component="div">
             <Link className={classes.link} to="/create">
-              Create
+              <Trans i18nKey="Navbar.create" />
             </Link>
           </Typography>
         </Toolbar>

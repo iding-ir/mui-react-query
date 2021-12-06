@@ -5,8 +5,11 @@ import Button from "@mui/material/Button";
 import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
 import { useForm } from "react-hook-form";
 import LinearProgress from "@mui/material/LinearProgress";
+import { useTranslation } from "react-i18next";
+import { Trans } from "react-i18next";
 
 import { IItem } from "../Items/Items";
+import Error from "./Error";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -24,6 +27,8 @@ interface Props {
 
 const Form = ({ defaultValues, onSubmit, isLoading }: Props) => {
   const classes = useStyles();
+
+  const { t } = useTranslation();
 
   const {
     register,
@@ -48,7 +53,7 @@ const Form = ({ defaultValues, onSubmit, isLoading }: Props) => {
         {...register("title", { required: true })}
       />
 
-      {errors.title && <span>This field is required</span>}
+      <Error error={errors.title} field={t("Form.title")} />
 
       <TextField
         className={classes.input}
@@ -58,7 +63,7 @@ const Form = ({ defaultValues, onSubmit, isLoading }: Props) => {
         {...register("firstName", { required: true })}
       />
 
-      {errors.firstName && <span>This field is required</span>}
+      <Error error={errors.firstName} field={t("Form.firstName")} />
 
       <TextField
         className={classes.input}
@@ -68,13 +73,13 @@ const Form = ({ defaultValues, onSubmit, isLoading }: Props) => {
         {...register("lastName", { required: true })}
       />
 
-      {errors.lastName && <span>This field is required</span>}
+      <Error error={errors.lastName} field={t("Form.lastName")} />
 
       {isLoading ? (
         <LinearProgress />
       ) : (
         <Button fullWidth variant="contained" type="submit">
-          Submit
+          <Trans i18nKey="Form.submit" />
         </Button>
       )}
     </Box>
