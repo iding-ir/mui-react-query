@@ -41,8 +41,6 @@ export const postItem = async (item: Partial<IItem>) => {
 };
 
 export const editItem = async (item: Partial<IItem>) => {
-  console.log(item);
-
   const response = await fetch(`${api}/items/${item.id}`, {
     method: "PUT",
     body: JSON.stringify(item),

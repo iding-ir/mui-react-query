@@ -13,8 +13,6 @@ const Create = () => {
   const { mutateAsync, isLoading } = useMutation(postItem);
 
   const onSubmit = async (item: Partial<IItem>) => {
-    console.log(item);
-
     await mutateAsync(item);
 
     queryClient.invalidateQueries("items");
