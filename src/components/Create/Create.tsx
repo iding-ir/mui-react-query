@@ -2,7 +2,7 @@ import { useMutation, useQueryClient } from "react-query";
 import { useNavigate } from "react-router-dom";
 
 import { postItem } from "../../api";
-import { Item } from "../Items/Items";
+import { IItem } from "../Items/Items";
 import Form from "../Form/Form";
 
 const Create = () => {
@@ -12,7 +12,7 @@ const Create = () => {
 
   const { mutateAsync, isLoading } = useMutation(postItem);
 
-  const onSubmit = async (item: Partial<Item>) => {
+  const onSubmit = async (item: Partial<IItem>) => {
     console.log(item);
 
     await mutateAsync(item);

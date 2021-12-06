@@ -1,4 +1,4 @@
-import { Item } from "../components/Items/Items";
+import { IItem } from "../components/Items/Items";
 
 const api = process.env.REACT_APP_API;
 
@@ -26,7 +26,7 @@ export const deleteItem = async (id: string) => {
   return true;
 };
 
-export const postItem = async (item: Partial<Item>) => {
+export const postItem = async (item: Partial<IItem>) => {
   const response = await fetch(`${api}/items`, {
     method: "POST",
     body: JSON.stringify(item),
@@ -40,7 +40,7 @@ export const postItem = async (item: Partial<Item>) => {
   return data;
 };
 
-export const editItem = async (item: Partial<Item>) => {
+export const editItem = async (item: Partial<IItem>) => {
   console.log(item);
 
   const response = await fetch(`${api}/items/${item.id}`, {

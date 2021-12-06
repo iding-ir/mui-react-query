@@ -6,7 +6,7 @@ import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
 import { useForm } from "react-hook-form";
 import LinearProgress from "@mui/material/LinearProgress";
 
-import { Item } from "../Items/Items";
+import { IItem } from "../Items/Items";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -17,7 +17,7 @@ const useStyles = makeStyles((theme: Theme) =>
 );
 
 interface Props {
-  defaultValues: Item | {};
+  defaultValues: IItem | {};
   onSubmit: any;
   isLoading: boolean;
 }

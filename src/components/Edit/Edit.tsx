@@ -2,7 +2,7 @@ import { useQuery, useMutation, useQueryClient } from "react-query";
 import { useParams, useNavigate } from "react-router-dom";
 
 import { getItem, editItem } from "../../api";
-import { Item } from "../Items/Items";
+import { IItem } from "../Items/Items";
 import Form from "../Form/Form";
 
 const Edit = () => {
@@ -16,7 +16,7 @@ const Edit = () => {
 
   const { data, isLoading } = useQuery("item", () => getItem(id as string));
 
-  const onSubmit = async (item: Partial<Item>) => {
+  const onSubmit = async (item: Partial<IItem>) => {
     await mutateAsync({ ...item, id });
 
     queryClient.invalidateQueries("items");
