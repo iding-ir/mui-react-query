@@ -41,13 +41,20 @@ const Form = ({ defaultValues, onSubmit, isLoading }: Props) => {
     handleSubmit,
     formState: { errors },
     reset,
-  } = useForm();
+    watch,
+  } = useForm({
+    mode: "onTouched",
+  });
 
   useEffect(() => {
     if (defaultValues && Object.keys(defaultValues).length) {
       reset(defaultValues);
     }
   }, [defaultValues, reset]);
+
+  const title = watch("title");
+  const firstName = watch("firstName");
+  const lastName = watch("lastName");
 
   return (
     <Box component="form" onSubmit={handleSubmit(onSubmit)}>
@@ -93,6 +100,7 @@ const Form = ({ defaultValues, onSubmit, isLoading }: Props) => {
           variant="contained"
           type="submit"
           size="large"
+          disabled={!title || !firstName || !lastName}
         >
           <Trans i18nKey="Form.submit" />
         </Button>
