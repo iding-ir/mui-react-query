@@ -1,4 +1,4 @@
-import { useState, createContext } from "react";
+import { useState, useEffect, createContext } from "react";
 import { createTheme } from "@mui/material/styles";
 import { PaletteMode, Theme } from "@mui/material";
 
@@ -10,6 +10,8 @@ interface IThemeContext {
   theme?: Theme;
 }
 
+const storedDefaultMode = localStorage.getItem("mode") as PaletteMode;
+
 export const ThemeContext = createContext<IThemeContext>({
   mode: "light",
   setMode: () => {},
@@ -20,7 +22,13 @@ interface Props {
 }
 
 export const useTheme = ({ defaultMode = "light" }: Props) => {
-  const [mode, setMode] = useState<PaletteMode>(defaultMode);
+  const [mode, setMode] = useState<PaletteMode>(
+    storedDefaultMode || defaultMode
+  );
+
+  useEffect(() => {
+    localStorage.setItem("mode", mode);
+  }, [mode]);
 
   const theme = createTheme({
     palette: {
