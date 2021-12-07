@@ -1,10 +1,30 @@
+import { useState, createContext } from "react";
 import { createTheme } from "@mui/material/styles";
+import { PaletteMode, Theme } from "@mui/material";
+
 import { primary, secondary, grey } from "./colors";
 
-export const useTheme = () => {
+interface IThemeContext {
+  mode: PaletteMode;
+  setMode: (mode: PaletteMode) => void;
+  theme?: Theme;
+}
+
+export const ThemeContext = createContext<IThemeContext>({
+  mode: "light",
+  setMode: () => {},
+});
+
+interface Props {
+  defaultMode?: PaletteMode;
+}
+
+export const useTheme = ({ defaultMode = "light" }: Props) => {
+  const [mode, setMode] = useState<PaletteMode>(defaultMode);
+
   const theme = createTheme({
     palette: {
-      mode: "dark",
+      mode,
       primary: {
         light: primary[400],
         main: primary[600],
@@ -20,5 +40,5 @@ export const useTheme = () => {
     },
   });
 
-  return { theme };
+  return { theme, mode, setMode };
 };

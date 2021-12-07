@@ -27,7 +27,7 @@ const Items = () => {
       {isLoading ? (
         <CircularProgress sx={styles.loader} />
       ) : (
-        items.map((item: IItem) => <Item item={item} />)
+        items.map((item: IItem) => <Item key={item.id} item={item} />)
       )}
     </>
   );

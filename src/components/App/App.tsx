@@ -2,19 +2,23 @@ import { QueryClient, QueryClientProvider } from "react-query";
 import { ThemeProvider } from "@mui/material/styles";
 
 import "../../localization";
-import { useTheme } from "../../themes";
+import { useTheme, ThemeContext } from "../../themes";
 import Pages from "../Pages/Pages";
 
 const queryClient = new QueryClient();
 
 function App() {
-  const { theme } = useTheme();
+  const { theme, mode, setMode } = useTheme({
+    defaultMode: "dark",
+  });
 
   return (
     <QueryClientProvider client={queryClient}>
-      <ThemeProvider theme={theme}>
-        <Pages />
-      </ThemeProvider>
+      <ThemeContext.Provider value={{ mode, setMode }}>
+        <ThemeProvider theme={theme}>
+          <Pages />
+        </ThemeProvider>
+      </ThemeContext.Provider>
     </QueryClientProvider>
   );
 }
