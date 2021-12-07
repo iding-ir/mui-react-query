@@ -15,7 +15,7 @@ const styles: Styles = {
   link: {
     a: {
       padding: "0 1rem",
-      color: "primary.light",
+      color: "text.primary",
       textDecoration: "none",
       fontSize: "1rem",
     },

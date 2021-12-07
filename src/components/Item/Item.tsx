@@ -28,6 +28,7 @@ const styles: Styles = {
   },
   author: {
     fontSize: "1rem",
+    color: "text.secondary",
   },
   pusher: {
     width: "100%",
@@ -66,7 +67,7 @@ const Item = ({ item }: Props) => {
           {isLoading ? <LinearProgress sx={styles.loader} /> : title}
         </Typography>
 
-        <Typography sx={styles.author} color="text.secondary" gutterBottom>
+        <Typography sx={styles.author} gutterBottom>
           {isLoading ? null : (
             <Trans i18nKey="Item.author" values={{ firstName, lastName }} />
           )}
