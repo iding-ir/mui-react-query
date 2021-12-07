@@ -1,5 +1,6 @@
 import Box from "@mui/material/Box";
-import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
+import { Theme } from "@mui/material/styles";
+import { createStyles, makeStyles } from "@mui/styles";
 
 import Items from "../Items/Items";
 

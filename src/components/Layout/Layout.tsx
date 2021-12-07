@@ -4,7 +4,8 @@ import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import { Link } from "react-router-dom";
-import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
+import { Theme } from "@mui/material/styles";
+import { createStyles, makeStyles } from "@mui/styles";
 import { Trans } from "react-i18next";
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -20,6 +21,7 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     main: {
       padding: "1rem",
+      width: "100%",
     },
   })
 );

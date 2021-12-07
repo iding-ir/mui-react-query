@@ -1,6 +1,7 @@
 import { useQuery } from "react-query";
 import CircularProgress from "@mui/material/CircularProgress";
-import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
+import { Theme } from "@mui/material/styles";
+import { createStyles, makeStyles } from "@mui/styles";
 
 import { getItems } from "../../api";
 import Item from "../Item/Item";
