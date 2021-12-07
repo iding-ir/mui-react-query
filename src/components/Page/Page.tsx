@@ -1,13 +1,15 @@
 import { useQuery } from "react-query";
+import { useParams } from "react-router-dom";
 import CircularProgress from "@mui/material/CircularProgress";
 import Box from "@mui/material/Box";
 
-import { getItems } from "../../api";
-import Item from "../Item/Item";
+import { getItem } from "../../api";
+import NotFound from "../NotFound/NotFound";
+import Contents from "../Contents/Contents";
 import { Styles } from "../../types";
 
 const styles: Styles = {
-  items: {
+  page: {
     display: "flex",
     flexDirection: "row",
     flexWrap: "wrap",
@@ -19,26 +21,22 @@ const styles: Styles = {
   },
 };
 
-export interface IItem {
-  id: string;
-  title: string;
-  firstName: string;
-  lastName: string;
-  content: string;
-}
+const Page = () => {
+  const { id } = useParams();
 
-const Items = () => {
-  const { data: items, isLoading } = useQuery("items", getItems);
+  const { data, isLoading } = useQuery("item", () => getItem(id as string));
 
   return (
-    <Box sx={styles.items}>
+    <Box sx={styles.page}>
       {isLoading ? (
         <CircularProgress sx={styles.loader} />
+      ) : data === "Not found" ? (
+        <NotFound />
       ) : (
-        items.map((item: IItem) => <Item key={item.id} item={item} />)
+        <Contents item={data} />
       )}
     </Box>
   );
 };
 
-export default Items;
+export default Page;

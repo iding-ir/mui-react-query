@@ -8,12 +8,20 @@ import { useMutation, useQueryClient } from "react-query";
 import LinearProgress from "@mui/material/LinearProgress";
 import { useNavigate } from "react-router-dom";
 import { Trans } from "react-i18next";
+import { Link } from "react-router-dom";
 
 import { deleteItem } from "../../api";
 import { IItem } from "../Items/Items";
 import { Styles } from "../../types";
 
 const styles: Styles = {
+  link: {
+    a: {
+      color: "text.primary",
+      textDecoration: "none",
+      fontSize: "1rem",
+    },
+  },
   loader: {
     margin: "1rem 0",
   },
@@ -64,7 +72,13 @@ const Item = ({ item }: Props) => {
     <Card sx={styles.item} key={id}>
       <CardContent sx={styles.content}>
         <Typography variant="h6" component="div">
-          {isLoading ? <LinearProgress sx={styles.loader} /> : title}
+          {isLoading ? (
+            <LinearProgress sx={styles.loader} />
+          ) : (
+            <Box sx={styles.link}>
+              <Link to={`/page/${id}`}>{title.toUpperCase()}</Link>
+            </Box>
+          )}
         </Typography>
 
         <Typography sx={styles.author} gutterBottom>

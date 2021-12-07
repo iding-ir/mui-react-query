@@ -18,6 +18,9 @@ const styles: Styles = {
   input: {
     margin: "0.5rem 0 !important",
   },
+  textarea: {
+    margin: "0.5rem 0 !important",
+  },
   button: {
     margin: "0.5rem 0 !important",
   },
@@ -86,6 +89,17 @@ const Form = ({ defaultValues, onSubmit, isLoading }: Props) => {
       />
 
       <Error error={errors.lastName} field={t("Form.lastName")} />
+
+      <TextField
+        sx={styles.input}
+        fullWidth
+        label="Content"
+        variant="outlined"
+        InputLabelProps={{ shrink: true }}
+        {...register("content", { required: true })}
+      />
+
+      <Error error={errors.content} field={t("Form.content")} />
 
       {isLoading ? (
         <LinearProgress sx={styles.loader} />

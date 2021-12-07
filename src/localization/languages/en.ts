@@ -4,6 +4,9 @@ const localization = {
     delete: "Delete",
     author: "By: {{firstName}} {{lastName}}",
   },
+  Content: {
+    author: "Author: {{firstName}} {{lastName}}",
+  },
   Navbar: {
     home: "Home",
     create: "Create",
@@ -13,6 +16,7 @@ const localization = {
     title: "Title",
     firstName: "First Name",
     lastName: "Last Name",
+    content: "Content",
     submit: "Submit",
   },
   Error: {
