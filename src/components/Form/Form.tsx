@@ -8,7 +8,7 @@ import { useTranslation } from "react-i18next";
 import { Trans } from "react-i18next";
 
 import { IItem } from "../Items/Items";
-import Error from "./Error";
+import Error from "../Error/Error";
 import { Styles } from "../../types";
 
 const styles: Styles = {

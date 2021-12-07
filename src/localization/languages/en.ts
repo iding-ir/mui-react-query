@@ -7,17 +7,18 @@ const localization = {
   Navbar: {
     home: "Home",
     create: "Create",
+    theme: "Switch Theme",
   },
   Form: {
-    Error: {
-      required: "{{field}} is required",
-    },
     title: "Title",
     firstName: "First Name",
     lastName: "Last Name",
     submit: "Submit",
   },
-  Edit: {
+  Error: {
+    required: "{{field}} is required",
+  },
+  NotFound: {
     notFound: "Item not found!",
     goBack: "Go back...",
   },
