@@ -29,6 +29,7 @@ const styles: Styles = {
   },
   pusher: {
     width: "100%",
+    flexShrink: "10",
   },
 };
 
