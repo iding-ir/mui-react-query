@@ -1,25 +1,20 @@
 import Box from "@mui/material/Box";
-import { Theme } from "@mui/material/styles";
-import { createStyles, makeStyles } from "@mui/styles";
 
 import Items from "../Items/Items";
+import { Styles } from "../../types";
 
-const useStyles = makeStyles((theme: Theme) =>
-  createStyles({
-    home: {
-      display: "flex",
-      flexDirection: "row",
-      flexWrap: "wrap",
-      width: "100%",
-    },
-  })
-);
+const styles: Styles = {
+  home: {
+    display: "flex",
+    flexDirection: "row",
+    flexWrap: "wrap",
+    width: "100%",
+  },
+};
 
 const Home = () => {
-  const classes = useStyles();
-
   return (
-    <Box className={classes.home}>
+    <Box sx={styles.home}>
       <Items />
     </Box>
   );

@@ -1,27 +1,25 @@
 import { useQuery, useMutation, useQueryClient } from "react-query";
 import { Link, useParams, useNavigate } from "react-router-dom";
-import { Theme } from "@mui/material/styles";
-import { createStyles, makeStyles } from "@mui/styles";
 import { Trans } from "react-i18next";
 import Typography from "@mui/material/Typography";
+import Box from "@mui/material/Box";
 
 import { getItem, editItem } from "../../api";
 import { IItem } from "../Items/Items";
 import Form from "../Form/Form";
+import { Styles } from "../../types";
 
-const useStyles = makeStyles((theme: Theme) =>
-  createStyles({
-    link: {
-      color: "#1976D2",
+const styles: Styles = {
+  link: {
+    a: {
+      color: "primary.main",
       textDecoration: "none",
       fontSize: "1rem",
     },
-  })
-);
+  },
+};
 
 const Edit = () => {
-  const classes = useStyles();
-
   const { id } = useParams();
 
   const navigate = useNavigate();
@@ -47,9 +45,11 @@ const Edit = () => {
       </Typography>
 
       <Typography variant="h6" component="div">
-        <Link className={classes.link} to="/">
-          <Trans i18nKey="Edit.goBack" />
-        </Link>
+        <Box sx={styles.link}>
+          <Link to="/">
+            <Trans i18nKey="Edit.goBack" />
+          </Link>
+        </Box>
       </Typography>
     </>
   ) : (

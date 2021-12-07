@@ -4,8 +4,6 @@ import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
-import { Theme } from "@mui/material/styles";
-import { createStyles, makeStyles } from "@mui/styles";
 import { useMutation, useQueryClient } from "react-query";
 import LinearProgress from "@mui/material/LinearProgress";
 import { useNavigate } from "react-router-dom";
@@ -13,28 +11,28 @@ import { Trans } from "react-i18next";
 
 import { deleteItem } from "../../api";
 import { IItem } from "../Items/Items";
+import { Styles } from "../../types";
 
-const useStyles = makeStyles((theme: Theme) =>
-  createStyles({
-    loader: {
-      margin: "1rem 0",
-    },
-    item: {
-      margin: "1rem",
-      display: "flex",
-      flexDirection: "column",
-    },
-    content: {
-      flexGrow: 1,
-    },
-    author: {
-      fontSize: "1rem",
-    },
-    pusher: {
-      width: "100%",
-    },
-  })
-);
+const styles: Styles = {
+  loader: {
+    margin: "1rem 0",
+  },
+  item: {
+    margin: "1rem",
+    display: "flex",
+    flexDirection: "column",
+    width: { xs: "100%", sm: "calc(50% - 2rem)", md: "calc(25% - 2rem)" },
+  },
+  content: {
+    flexGrow: 1,
+  },
+  author: {
+    fontSize: "1rem",
+  },
+  pusher: {
+    width: "100%",
+  },
+};
 
 interface Props {
   item: IItem;
@@ -42,8 +40,6 @@ interface Props {
 
 const Item = ({ item }: Props) => {
   const { id, title, firstName, lastName } = item;
-
-  const classes = useStyles();
 
   const navigate = useNavigate();
 
@@ -64,23 +60,13 @@ const Item = ({ item }: Props) => {
   };
 
   return (
-    <Card
-      className={classes.item}
-      key={id}
-      sx={{
-        width: { xs: "100%", sm: "calc(50% - 2rem)", md: "calc(25% - 2rem)" },
-      }}
-    >
-      <CardContent className={classes.content}>
-        <Typography variant="h5" component="div">
-          {isLoading ? <LinearProgress className={classes.loader} /> : title}
+    <Card sx={styles.item} key={id}>
+      <CardContent sx={styles.content}>
+        <Typography variant="h6" component="div">
+          {isLoading ? <LinearProgress sx={styles.loader} /> : title}
         </Typography>
 
-        <Typography
-          className={classes.author}
-          color="text.secondary"
-          gutterBottom
-        >
+        <Typography sx={styles.author} color="text.secondary" gutterBottom>
           {isLoading ? null : (
             <Trans i18nKey="Item.author" values={{ firstName, lastName }} />
           )}
@@ -97,7 +83,7 @@ const Item = ({ item }: Props) => {
           <Trans i18nKey="Item.edit" />
         </Button>
 
-        <Box className={classes.pusher} />
+        <Box sx={styles.pusher} />
 
         <Button
           color="warning"
