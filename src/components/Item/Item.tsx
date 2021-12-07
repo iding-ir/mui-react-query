@@ -20,6 +20,17 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     item: {
       margin: "1rem",
+      display: "flex",
+      flexDirection: "column",
+    },
+    content: {
+      flexGrow: 1,
+    },
+    author: {
+      fontSize: "1rem",
+    },
+    pusher: {
+      width: "100%",
     },
   })
 );
@@ -57,17 +68,15 @@ const Item = ({ item }: Props) => {
       key={id}
       sx={{
         width: { xs: "100%", sm: "calc(50% - 2rem)", md: "calc(25% - 2rem)" },
-        display: "flex",
-        flexDirection: "column",
       }}
     >
-      <CardContent sx={{ flexGrow: 1 }}>
+      <CardContent className={classes.content}>
         <Typography variant="h5" component="div">
           {isLoading ? <LinearProgress className={classes.loader} /> : title}
         </Typography>
 
         <Typography
-          sx={{ fontSize: "1rem" }}
+          className={classes.author}
           color="text.secondary"
           gutterBottom
         >
@@ -87,7 +96,7 @@ const Item = ({ item }: Props) => {
           <Trans i18nKey="Item.edit" />
         </Button>
 
-        <Box sx={{ width: "100%" }} />
+        <Box className={classes.pusher} />
 
         <Button
           color="warning"

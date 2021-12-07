@@ -15,6 +15,12 @@ const useStyles = makeStyles((theme: Theme) =>
       textDecoration: "none",
       fontSize: "1rem",
     },
+    wrapper: {
+      display: "flex",
+    },
+    main: {
+      padding: "1rem",
+    },
   })
 );
 
@@ -26,7 +32,7 @@ export default function Layout({ children }: Props) {
   const classes = useStyles();
 
   return (
-    <Box sx={{ display: "flex" }}>
+    <Box className={classes.wrapper}>
       <AppBar position="fixed">
         <Toolbar>
           <Typography variant="h6" noWrap component="div">
@@ -43,7 +49,7 @@ export default function Layout({ children }: Props) {
         </Toolbar>
       </AppBar>
 
-      <Box component="main" sx={{ p: 3, width: "100%" }}>
+      <Box component="main" className={classes.main}>
         <Toolbar />
 
         {children}
