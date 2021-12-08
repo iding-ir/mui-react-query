@@ -1,4 +1,4 @@
-import { useEffect, useContext } from "react";
+import { useContext } from "react";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import ListItemText from "@mui/material/ListItemText";
@@ -64,7 +64,7 @@ const languages: ILanguages = {
 };
 
 const Language = () => {
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
 
   const { language, setLanguage } = useContext(LanguageContext);
 
@@ -74,14 +74,10 @@ const Language = () => {
     setLanguage(language);
   };
 
-  useEffect(() => {
-    i18n.changeLanguage(language);
-  }, [i18n, language]);
-
   const renderItems = () =>
     Object.values(languages).map((language: ILanguage) => {
       return (
-        <MenuItem value={language.value}>
+        <MenuItem value={language.value} key={language.value}>
           <ListItemIcon sx={styles.icon}>{language.icon}</ListItemIcon>
 
           <ListItemText sx={styles.text} primary={t(language.name)} />
