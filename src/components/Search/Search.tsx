@@ -32,14 +32,14 @@ interface SearchTypes {
   [key: string]: SearchType;
 }
 
-const searchTypes: SearchTypes = {
-  author: {
-    key: "author",
-    label: "Search.author",
-  },
+export const searchTypes: SearchTypes = {
   title: {
     key: "title",
     label: "Search.title",
+  },
+  author: {
+    key: "author",
+    label: "Search.author",
   },
 };
 

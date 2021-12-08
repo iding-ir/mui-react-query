@@ -34,17 +34,21 @@ const Items = () => {
 
   const { keyword, type } = useContext(SearchContext);
 
+  const getFilteredItems = (items: IItem[]) => {
+    return items.filter(
+      (item: IItem) =>
+        item[type]?.toLowerCase().indexOf(keyword.toLowerCase()) > -1
+    );
+  };
+
   return (
     <Box sx={styles.items}>
       {isLoading ? (
         <CircularProgress sx={styles.loader} />
       ) : (
-        items
-          .filter(
-            (item: IItem) =>
-              item[type]?.toLowerCase().indexOf(keyword.toLowerCase()) > -1
-          )
-          .map((item: IItem) => <Item key={item.id} item={item} />)
+        getFilteredItems(items).map((item: IItem) => (
+          <Item key={item.id} item={item} />
+        ))
       )}
     </Box>
   );
