@@ -16,8 +16,6 @@ const PDF = ({ item, theme }: Props) => {
     page: {
       display: "flex",
       flexDirection: "column",
-      fontSize: "12",
-      lineHeight: "1.5",
       padding: "40",
       textAlign: "left",
       color: theme.palette.text.secondary,
@@ -31,14 +29,19 @@ const PDF = ({ item, theme }: Props) => {
       borderColor: "#cccccc",
     },
     title: {
-      fontSize: "24",
+      fontSize: "36",
       lineHeight: "1.5",
       color: theme.palette.primary.main,
     },
     author: {
-      fontSize: "16",
+      fontSize: "18",
       lineHeight: "1.5",
       color: theme.palette.text.secondary,
+    },
+    content: {
+      fontSize: "16",
+      lineHeight: "1.5",
+      color: theme.palette.text.primary,
     },
   });
 
@@ -54,7 +57,7 @@ const PDF = ({ item, theme }: Props) => {
         </View>
 
         <View style={styles.section}>
-          <Text>{content}</Text>
+          <Text style={styles.content}>{content}</Text>
         </View>
       </Page>
     </Document>
