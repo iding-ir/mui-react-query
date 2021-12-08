@@ -60,7 +60,7 @@ const Form = ({ defaultValues, onSubmit, isLoading }: Props) => {
       <TextField
         sx={styles.input}
         fullWidth
-        label="Title"
+        label={t("Form.title")}
         variant="outlined"
         InputLabelProps={{ shrink: true }}
         {...register("title", { required: true })}
@@ -71,7 +71,7 @@ const Form = ({ defaultValues, onSubmit, isLoading }: Props) => {
       <TextField
         sx={styles.input}
         fullWidth
-        label="First Name"
+        label={t("Form.firstName")}
         variant="outlined"
         InputLabelProps={{ shrink: true }}
         {...register("firstName", { required: true })}
@@ -82,7 +82,7 @@ const Form = ({ defaultValues, onSubmit, isLoading }: Props) => {
       <TextField
         sx={styles.input}
         fullWidth
-        label="Last Name"
+        label={t("Form.lastName")}
         variant="outlined"
         InputLabelProps={{ shrink: true }}
         {...register("lastName", { required: true })}
@@ -93,7 +93,7 @@ const Form = ({ defaultValues, onSubmit, isLoading }: Props) => {
       <TextField
         sx={styles.input}
         fullWidth
-        label="Content"
+        label={t("Form.content")}
         variant="outlined"
         InputLabelProps={{ shrink: true }}
         multiline
