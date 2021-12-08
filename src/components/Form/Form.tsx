@@ -96,6 +96,9 @@ const Form = ({ defaultValues, onSubmit, isLoading }: Props) => {
         label="Content"
         variant="outlined"
         InputLabelProps={{ shrink: true }}
+        multiline
+        rows={4}
+        maxRows={6}
         {...register("content", { required: true })}
       />
 

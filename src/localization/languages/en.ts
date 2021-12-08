@@ -26,6 +26,9 @@ const localization = {
     notFound: "Item not found!",
     goBack: "Go back...",
   },
+  Download: {
+    download: "Download",
+  },
 };
 
 export default localization;

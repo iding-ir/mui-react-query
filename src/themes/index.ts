@@ -4,10 +4,12 @@ import { PaletteMode, Theme } from "@mui/material";
 
 import { primary, secondary, grey } from "./colors";
 
+const defaultTheme = createTheme({});
+
 interface IThemeContext {
   mode: PaletteMode;
   setMode: (mode: PaletteMode) => void;
-  theme?: Theme;
+  theme: Theme;
 }
 
 const storedDefaultMode = localStorage.getItem("mode") as PaletteMode;
@@ -15,6 +17,7 @@ const storedDefaultMode = localStorage.getItem("mode") as PaletteMode;
 export const ThemeContext = createContext<IThemeContext>({
   mode: "light",
   setMode: () => {},
+  theme: defaultTheme,
 });
 
 interface Props {

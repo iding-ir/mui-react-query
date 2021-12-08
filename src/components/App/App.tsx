@@ -14,7 +14,7 @@ function App() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <ThemeContext.Provider value={{ mode, setMode }}>
+      <ThemeContext.Provider value={{ mode, setMode, theme }}>
         <ThemeProvider theme={theme}>
           <Pages />
         </ThemeProvider>

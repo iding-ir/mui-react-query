@@ -3,9 +3,18 @@ import Typography from "@mui/material/Typography";
 import { Trans } from "react-i18next";
 
 import { IItem } from "../Items/Items";
+import Download from "../Download/Download";
 import { Styles } from "../../types";
 
 const styles: Styles = {
+  wrapper: {
+    padding: "1rem",
+    bgcolor: "background.paper",
+  },
+  container: {
+    padding: "1rem",
+    bgcolor: "background.paper",
+  },
   header: {
     width: "100%",
     padding: "1rem 0",
@@ -18,6 +27,10 @@ const styles: Styles = {
   author: {
     color: "text.secondary",
   },
+  content: {
+    color: "text.secondary",
+    margin: "1rem 0",
+  },
 };
 
 interface Props {
@@ -25,12 +38,10 @@ interface Props {
 }
 
 const Contents = ({ item }: Props) => {
-  console.log(item);
-
   const { title, firstName, lastName, content } = item;
 
   return (
-    <>
+    <Box sx={styles.container}>
       <Box sx={styles.header}>
         <Typography sx={styles.title} variant="h6" component="h6">
           {title.toUpperCase()}
@@ -41,10 +52,12 @@ const Contents = ({ item }: Props) => {
         </Typography>
       </Box>
 
-      <Box>
+      <Box sx={styles.content}>
         <Typography gutterBottom>{content}</Typography>
       </Box>
-    </>
+
+      <Download item={item} />
+    </Box>
   );
 };
 
