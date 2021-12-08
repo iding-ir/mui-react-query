@@ -10,6 +10,7 @@ import { useTranslation } from "react-i18next";
 
 import { Styles } from "../../types";
 import { ThemeContext } from "../../themes";
+import Language from "../Language/Language";
 
 const styles: Styles = {
   link: {
@@ -54,6 +55,8 @@ const Navbar = () => {
         </Typography>
 
         <Box sx={styles.pusher} />
+
+        <Language />
 
         <Switch
           inputProps={{ "aria-label": t("Navbar.theme") }}

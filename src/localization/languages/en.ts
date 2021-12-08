@@ -2,7 +2,7 @@ const localization = {
   Item: {
     edit: "Edit",
     delete: "Delete",
-    author: "By: {{firstName}} {{lastName}}",
+    author: "Author: {{firstName}} {{lastName}}",
   },
   Content: {
     author: "Author: {{firstName}} {{lastName}}",
@@ -35,6 +35,10 @@ const localization = {
     create: "Create new",
     edit: "Edit: {{title}}",
     page: "Page: {{title}}",
+  },
+  Language: {
+    en: "English",
+    es: "Spanish",
   },
 };
 

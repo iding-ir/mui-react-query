@@ -3,6 +3,7 @@ import { ThemeProvider } from "@mui/material/styles";
 
 import "../../localization";
 import { useTheme, ThemeContext } from "../../themes";
+import { useLanguage, LanguageContext } from "../../languages";
 import Pages from "../Pages/Pages";
 
 const queryClient = new QueryClient();
@@ -12,13 +13,19 @@ function App() {
     defaultMode: "dark",
   });
 
+  const { language, setLanguage } = useLanguage({
+    defaultLanguage: "en",
+  });
+
   return (
     <QueryClientProvider client={queryClient}>
-      <ThemeContext.Provider value={{ mode, setMode, theme }}>
-        <ThemeProvider theme={theme}>
-          <Pages />
-        </ThemeProvider>
-      </ThemeContext.Provider>
+      <LanguageContext.Provider value={{ language, setLanguage }}>
+        <ThemeContext.Provider value={{ mode, setMode, theme }}>
+          <ThemeProvider theme={theme}>
+            <Pages />
+          </ThemeProvider>
+        </ThemeContext.Provider>
+      </LanguageContext.Provider>
     </QueryClientProvider>
   );
 }
