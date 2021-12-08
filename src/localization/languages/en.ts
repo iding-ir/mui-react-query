@@ -29,6 +29,13 @@ const localization = {
   Download: {
     download: "Download",
   },
+  Title: {
+    notFound: "Page not found!",
+    home: "Home",
+    create: "Create new",
+    edit: "Edit: {{title}}",
+    page: "Page: {{title}}",
+  },
 };
 
 export default localization;

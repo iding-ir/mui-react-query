@@ -1,12 +1,16 @@
 import { useQuery, useMutation, useQueryClient } from "react-query";
 import { useParams, useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 import { getItem, editItem } from "../../api";
 import { IItem } from "../Items/Items";
 import Form from "../Form/Form";
 import NotFound from "../NotFound/NotFound";
+import Head from "../Head/Head";
 
 const Edit = () => {
+  const { t } = useTranslation();
+
   const { id } = useParams();
 
   const navigate = useNavigate();
@@ -26,9 +30,17 @@ const Edit = () => {
   };
 
   return data === "Not found" ? (
-    <NotFound />
+    <>
+      <Head title={t("Title.notFound")} />
+
+      <NotFound />
+    </>
   ) : (
-    <Form defaultValues={data} onSubmit={onSubmit} isLoading={isLoading} />
+    <>
+      <Head title={t("Title.edit", { title: data.title })} />
+
+      <Form defaultValues={data} onSubmit={onSubmit} isLoading={isLoading} />
+    </>
   );
 };
 

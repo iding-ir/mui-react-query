@@ -2,10 +2,12 @@ import { useQuery } from "react-query";
 import { useParams } from "react-router-dom";
 import CircularProgress from "@mui/material/CircularProgress";
 import Box from "@mui/material/Box";
+import { useTranslation } from "react-i18next";
 
 import { getItem } from "../../api";
 import NotFound from "../NotFound/NotFound";
 import Contents from "../Contents/Contents";
+import Head from "../Head/Head";
 import { Styles } from "../../types";
 
 const styles: Styles = {
@@ -22,6 +24,8 @@ const styles: Styles = {
 };
 
 const Page = () => {
+  const { t } = useTranslation();
+
   const { id } = useParams();
 
   const { data, isLoading } = useQuery("item", () => getItem(id as string));
@@ -31,9 +35,17 @@ const Page = () => {
       {isLoading ? (
         <CircularProgress sx={styles.loader} />
       ) : data === "Not found" ? (
-        <NotFound />
+        <>
+          <Head title={t("Title.notFound")} />
+
+          <NotFound />
+        </>
       ) : (
-        <Contents item={data} />
+        <>
+          <Head title={t("Title.page", { title: data.title })} />
+
+          <Contents item={data} />
+        </>
       )}
     </Box>
   );
