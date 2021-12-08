@@ -17,9 +17,11 @@ const styles: Styles = {
   },
   keyword: {
     width: "calc(100% - 170px)",
+    margin: "0 0.5rem 0 1rem",
   },
   type: {
     width: "170px",
+    margin: "0 1rem 0 0.5rem",
   },
 };
 
@@ -62,11 +64,12 @@ const Search = () => {
         value={keyword}
         onChange={handleChange}
         label={t("Search.keyword")}
-        variant="standard"
+        variant="outlined"
+        InputLabelProps={{ shrink: true }}
         sx={styles.keyword}
       />
 
-      <FormControl sx={styles.type}>
+      <FormControl key="search-type" sx={styles.type}>
         <InputLabel id="search-type-label">{t("Search.type")}</InputLabel>
 
         <Select
@@ -74,7 +77,8 @@ const Search = () => {
           id="search-type"
           value={type}
           onChange={handleSelect}
-          variant="standard"
+          label={t("Search.type")}
+          variant="outlined"
         >
           {Object.values(searchTypes).map((searchType: SearchType) => (
             <MenuItem value={searchType.key}>{t(searchType.label)}</MenuItem>
