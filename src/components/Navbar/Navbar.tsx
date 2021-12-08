@@ -1,16 +1,13 @@
-import { useContext, ChangeEvent } from "react";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import { Link } from "react-router-dom";
 import { Trans } from "react-i18next";
-import Switch from "@mui/material/Switch";
-import { useTranslation } from "react-i18next";
 
 import { Styles } from "../../types";
-import { ThemeContext } from "../../themes";
 import Language from "../Language/Language";
+import Theme from "../Theme/Theme";
 
 const styles: Styles = {
   link: {
@@ -31,10 +28,6 @@ const styles: Styles = {
 };
 
 const Navbar = () => {
-  const { t } = useTranslation();
-
-  const { mode, setMode } = useContext(ThemeContext);
-
   return (
     <AppBar position="fixed">
       <Toolbar>
@@ -58,13 +51,7 @@ const Navbar = () => {
 
         <Language />
 
-        <Switch
-          inputProps={{ "aria-label": t("Navbar.theme") }}
-          checked={mode === "dark"}
-          onChange={(event: ChangeEvent<HTMLInputElement>) => {
-            setMode(event.target.checked ? "dark" : "light");
-          }}
-        />
+        <Theme />
       </Toolbar>
     </AppBar>
   );
