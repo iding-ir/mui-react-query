@@ -2,8 +2,8 @@ import { QueryClient, QueryClientProvider } from "react-query";
 import { ThemeProvider } from "@mui/material/styles";
 
 import "../../localization";
-import { useTheme, ThemeContext } from "../../themes";
-import { useLanguage, LanguageContext } from "../../languages";
+import { useTheme, ThemeContext } from "../Theme/useTheme";
+import { useLanguage, LanguageContext } from "../Language/useLanguage";
 import Pages from "../Pages/Pages";
 
 const queryClient = new QueryClient();

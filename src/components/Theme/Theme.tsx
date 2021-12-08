@@ -2,7 +2,7 @@ import { useContext, ChangeEvent } from "react";
 import Switch from "@mui/material/Switch";
 import { useTranslation } from "react-i18next";
 
-import { ThemeContext } from "../../themes";
+import { ThemeContext } from "./useTheme";
 
 const Theme = () => {
   const { t } = useTranslation();

@@ -6,7 +6,7 @@ import { Trans } from "react-i18next";
 import PDF from "../PDF/PDF";
 import { IItem } from "../Items/Items";
 import { Styles } from "../../types";
-import { ThemeContext } from "../../themes";
+import { ThemeContext } from "../Theme/useTheme";
 
 const styles: Styles = {
   download: {

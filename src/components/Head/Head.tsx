@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { Helmet } from "react-helmet";
 
-import { ThemeContext } from "../../themes";
+import { ThemeContext } from "../Theme/useTheme";
 
 interface Props {
   title: string;

@@ -8,7 +8,7 @@ import { useTranslation } from "react-i18next";
 
 import { ReactComponent as IconEN } from "../../assets/images/icon-en.svg";
 import { ReactComponent as IconES } from "../../assets/images/icon-es.svg";
-import { LanguageContext } from "../../languages";
+import { LanguageContext } from "./useLanguage";
 import { Styles } from "../../types";
 
 const styles: Styles = {
