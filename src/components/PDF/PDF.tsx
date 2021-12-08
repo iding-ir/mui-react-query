@@ -10,7 +10,7 @@ interface Props {
 }
 
 const PDF = ({ item, theme }: Props) => {
-  const { title, firstName, lastName, content } = item;
+  const { title, author, content } = item;
 
   const styles = StyleSheet.create({
     page: {
@@ -52,7 +52,7 @@ const PDF = ({ item, theme }: Props) => {
           <Text style={styles.title}>{title.toUpperCase()}</Text>
 
           <Text style={styles.author}>
-            <Trans i18nKey="Content.author" values={{ firstName, lastName }} />
+            <Trans i18nKey="Content.author" values={{ author }} />
           </Text>
         </View>
 

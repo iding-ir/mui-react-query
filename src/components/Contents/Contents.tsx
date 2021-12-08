@@ -38,7 +38,7 @@ interface Props {
 }
 
 const Contents = ({ item }: Props) => {
-  const { title, firstName, lastName, content } = item;
+  const { title, author, content } = item;
 
   return (
     <Box sx={styles.container}>
@@ -48,7 +48,7 @@ const Contents = ({ item }: Props) => {
         </Typography>
 
         <Typography sx={styles.author} variant="subtitle2" component="p">
-          <Trans i18nKey="Content.author" values={{ firstName, lastName }} />
+          <Trans i18nKey="Content.author" values={{ author }} />
         </Typography>
       </Box>
 

@@ -48,7 +48,7 @@ interface Props {
 }
 
 const Item = ({ item }: Props) => {
-  const { id, title, firstName, lastName } = item;
+  const { id, title, author } = item;
 
   const navigate = useNavigate();
 
@@ -83,7 +83,7 @@ const Item = ({ item }: Props) => {
 
         <Typography sx={styles.author} gutterBottom>
           {isLoading ? null : (
-            <Trans i18nKey="Item.author" values={{ firstName, lastName }} />
+            <Trans i18nKey="Item.author" values={{ author }} />
           )}
         </Typography>
       </CardContent>

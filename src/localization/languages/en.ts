@@ -2,10 +2,10 @@ const localization = {
   Item: {
     edit: "Edit",
     delete: "Delete",
-    author: "Author: {{firstName}} {{lastName}}",
+    author: "Author: {{author}}",
   },
   Content: {
-    author: "Author: {{firstName}} {{lastName}}",
+    author: "Author: {{author}}",
   },
   Navbar: {
     home: "Home",
@@ -14,8 +14,7 @@ const localization = {
   },
   Form: {
     title: "Title",
-    firstName: "First Name",
-    lastName: "Last Name",
+    author: "Author",
     content: "Content",
     submit: "Submit",
   },
@@ -39,6 +38,12 @@ const localization = {
   Language: {
     en: "English",
     es: "Spanish",
+  },
+  Search: {
+    keyword: "Search",
+    type: "Search by",
+    author: "Author",
+    title: "Title",
   },
 };
 

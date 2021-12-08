@@ -52,8 +52,8 @@ const Form = ({ defaultValues, onSubmit, isLoading }: Props) => {
   }, [defaultValues, reset]);
 
   const title = watch("title");
-  const firstName = watch("firstName");
-  const lastName = watch("lastName");
+  const author = watch("author");
+  const content = watch("content");
 
   return (
     <Box component="form" onSubmit={handleSubmit(onSubmit)}>
@@ -71,24 +71,13 @@ const Form = ({ defaultValues, onSubmit, isLoading }: Props) => {
       <TextField
         sx={styles.input}
         fullWidth
-        label={t("Form.firstName")}
+        label={t("Form.author")}
         variant="outlined"
         InputLabelProps={{ shrink: true }}
-        {...register("firstName", { required: true })}
+        {...register("author", { required: true })}
       />
 
-      <Error error={errors.firstName} field={t("Form.firstName")} />
-
-      <TextField
-        sx={styles.input}
-        fullWidth
-        label={t("Form.lastName")}
-        variant="outlined"
-        InputLabelProps={{ shrink: true }}
-        {...register("lastName", { required: true })}
-      />
-
-      <Error error={errors.lastName} field={t("Form.lastName")} />
+      <Error error={errors.author} field={t("Form.author")} />
 
       <TextField
         sx={styles.input}
@@ -112,7 +101,7 @@ const Form = ({ defaultValues, onSubmit, isLoading }: Props) => {
           variant="contained"
           type="submit"
           size="large"
-          disabled={!title || !firstName || !lastName}
+          disabled={!title || !author || !content}
         >
           <Trans i18nKey="Form.submit" />
         </Button>

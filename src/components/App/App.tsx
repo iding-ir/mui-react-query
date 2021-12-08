@@ -4,6 +4,7 @@ import { ThemeProvider } from "@mui/material/styles";
 import "../../localization";
 import { useTheme, ThemeContext } from "../Theme/useTheme";
 import { useLanguage, LanguageContext } from "../Language/useLanguage";
+import { useSearch, SearchContext } from "../Search/useSearch";
 import Pages from "../Pages/Pages";
 
 const queryClient = new QueryClient();
@@ -17,15 +18,19 @@ function App() {
     defaultLanguage: "en",
   });
 
+  const { keyword, setKeyword, type, setType } = useSearch();
+
   return (
     <QueryClientProvider client={queryClient}>
-      <LanguageContext.Provider value={{ language, setLanguage }}>
-        <ThemeContext.Provider value={{ mode, setMode, theme }}>
-          <ThemeProvider theme={theme}>
-            <Pages />
-          </ThemeProvider>
-        </ThemeContext.Provider>
-      </LanguageContext.Provider>
+      <SearchContext.Provider value={{ keyword, setKeyword, type, setType }}>
+        <LanguageContext.Provider value={{ language, setLanguage }}>
+          <ThemeContext.Provider value={{ mode, setMode, theme }}>
+            <ThemeProvider theme={theme}>
+              <Pages />
+            </ThemeProvider>
+          </ThemeContext.Provider>
+        </LanguageContext.Provider>
+      </SearchContext.Provider>
     </QueryClientProvider>
   );
 }
