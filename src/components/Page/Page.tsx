@@ -42,7 +42,7 @@ const Page = () => {
         </>
       ) : (
         <>
-          <Head title={t("Title.page", { title: data.title })} />
+          <Head title={t("Title.page", { title: data?.title })} />
 
           <Contents item={data} />
         </>

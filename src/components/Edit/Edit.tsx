@@ -37,7 +37,7 @@ const Edit = () => {
     </>
   ) : (
     <>
-      <Head title={t("Title.edit", { title: data.title })} />
+      <Head title={t("Title.edit", { title: data?.title })} />
 
       <Form defaultValues={data} onSubmit={onSubmit} isLoading={isLoading} />
     </>
