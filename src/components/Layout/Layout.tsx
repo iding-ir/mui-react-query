@@ -1,15 +1,8 @@
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 
-import { Styles } from "../../types";
 import Navbar from "../Navbar/Navbar";
-
-const styles: Styles = {
-  main: {
-    padding: "1rem",
-    width: "100%",
-  },
-};
+import { styles } from "./styles";
 
 interface Props {
   children: React.ReactNode;

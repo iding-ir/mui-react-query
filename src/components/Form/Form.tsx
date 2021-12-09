@@ -7,30 +7,12 @@ import LinearProgress from "@mui/material/LinearProgress";
 import { useTranslation } from "react-i18next";
 import { Trans } from "react-i18next";
 
-import { IItem } from "../Items/Items";
+import { IStory } from "../../types";
 import Error from "../Error/Error";
-import { Styles } from "../../types";
-
-const styles: Styles = {
-  loader: {
-    margin: "1rem 0",
-  },
-  form: {
-    margin: "1rem !important",
-  },
-  input: {
-    marginBottom: "1rem",
-  },
-  textarea: {
-    marginBottom: "1rem",
-  },
-  button: {
-    marginBottom: "1rem",
-  },
-};
+import { styles } from "./styles";
 
 interface Props {
-  defaultValues: IItem | {};
+  defaultValues: IStory | {};
   onSubmit: any;
   isLoading: boolean;
 }

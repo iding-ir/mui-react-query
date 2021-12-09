@@ -4,34 +4,21 @@ import CircularProgress from "@mui/material/CircularProgress";
 import Box from "@mui/material/Box";
 import { useTranslation } from "react-i18next";
 
-import { getItem } from "../../api";
+import { getStory } from "../../api";
 import NotFound from "../NotFound/NotFound";
 import Contents from "../Contents/Contents";
 import Head from "../Head/Head";
-import { Styles } from "../../types";
+import { styles } from "./styles";
 
-const styles: Styles = {
-  page: {
-    display: "flex",
-    flexDirection: "row",
-    flexWrap: "wrap",
-    width: "100%",
-  },
-  loader: {
-    position: "relative",
-    margin: "5rem auto",
-  },
-};
-
-const Page = () => {
+const Story = () => {
   const { t } = useTranslation();
 
   const { id } = useParams();
 
-  const { data, isLoading } = useQuery("item", () => getItem(id as string));
+  const { data, isLoading } = useQuery("story", () => getStory(id as string));
 
   return (
-    <Box sx={styles.page}>
+    <Box sx={styles.story}>
       {isLoading ? (
         <CircularProgress sx={styles.loader} />
       ) : data === "Not found" ? (
@@ -42,13 +29,13 @@ const Page = () => {
         </>
       ) : (
         <>
-          <Head title={t("Title.page", { title: data?.title })} />
+          <Head title={t("Title.story", { title: data?.title })} />
 
-          <Contents item={data} />
+          <Contents story={data} />
         </>
       )}
     </Box>
   );
 };
 
-export default Page;
+export default Story;

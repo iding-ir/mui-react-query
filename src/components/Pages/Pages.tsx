@@ -5,7 +5,7 @@ import Layout from "../Layout/Layout";
 import Home from "../Home/Home";
 import Create from "../Create/Create";
 import Edit from "../Edit/Edit";
-import Page from "../Page/Page";
+import Story from "../Story/Story";
 
 const Pages = () => {
   return (
@@ -20,7 +20,7 @@ const Pages = () => {
 
           <Route path="/edit/:id" element={<Edit />} />
 
-          <Route path="/page/:id" element={<Page />} />
+          <Route path="/story/:id" element={<Story />} />
         </Routes>
       </Layout>
     </Router>

@@ -1,5 +1,5 @@
 const localization = {
-  Item: {
+  Story: {
     edit: "Edit",
     delete: "Delete",
     author: "Author: {{author}}",
@@ -22,18 +22,18 @@ const localization = {
     required: "{{field}} is required",
   },
   NotFound: {
-    notFound: "Item not found!",
+    notFound: "Story not found!",
     goBack: "Go back...",
   },
   Download: {
     download: "Download",
   },
   Title: {
-    notFound: "Page not found!",
+    notFound: "Story not found!",
     home: "Home",
     create: "Create new",
     edit: "Edit: {{title}}",
-    page: "Page: {{title}}",
+    story: "Story: {{title}}",
   },
   Language: {
     en: "English",

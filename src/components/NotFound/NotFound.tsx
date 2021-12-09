@@ -3,17 +3,7 @@ import { Trans } from "react-i18next";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 
-import { Styles } from "../../types";
-
-const styles: Styles = {
-  link: {
-    a: {
-      color: "primary.main",
-      textDecoration: "none",
-      fontSize: "1rem",
-    },
-  },
-};
+import { styles } from "./styles";
 
 const NotFound = () => {
   return (

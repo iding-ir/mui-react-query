@@ -2,8 +2,8 @@ import { useMutation, useQueryClient } from "react-query";
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
-import { postItem } from "../../api";
-import { IItem } from "../Items/Items";
+import { postStory } from "../../api";
+import { IStory } from "../../types";
 import Form from "../Form/Form";
 import Head from "../Head/Head";
 
@@ -14,12 +14,12 @@ const Create = () => {
 
   const queryClient = useQueryClient();
 
-  const { mutateAsync, isLoading } = useMutation(postItem);
+  const { mutateAsync, isLoading } = useMutation(postStory);
 
-  const onSubmit = async (item: Partial<IItem>) => {
-    await mutateAsync(item);
+  const onSubmit = async (story: Partial<IStory>) => {
+    await mutateAsync(story);
 
-    queryClient.invalidateQueries("items");
+    queryClient.invalidateQueries("stories");
 
     navigate("/");
   };

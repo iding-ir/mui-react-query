@@ -5,27 +5,9 @@ import Typography from "@mui/material/Typography";
 import { Link } from "react-router-dom";
 import { Trans } from "react-i18next";
 
-import { Styles } from "../../types";
 import Language from "../Language/Language";
 import Theme from "../Theme/Theme";
-
-const styles: Styles = {
-  link: {
-    a: {
-      padding: "0 1rem",
-      color: "secondary.main",
-      textDecoration: "none",
-      fontSize: "1rem",
-    },
-  },
-  wrapper: {
-    display: "flex",
-  },
-  pusher: {
-    width: "100%",
-    flexShrink: "10",
-  },
-};
+import { styles } from "./styles";
 
 const Navbar = () => {
   return (

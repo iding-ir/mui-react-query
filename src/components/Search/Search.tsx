@@ -8,23 +8,7 @@ import Select, { SelectChangeEvent } from "@mui/material/Select";
 import { useTranslation } from "react-i18next";
 
 import { SearchContext } from "./useSearch";
-import { Styles } from "../../types";
-
-const styles: Styles = {
-  search: {
-    display: "flex",
-    flexDirection: "row",
-    margin: "1rem",
-  },
-  keyword: {
-    width: "calc(100% - 170px)",
-    marginRight: "0.5rem",
-  },
-  type: {
-    width: "170px",
-    marginLeft: "0.5rem",
-  },
-};
+import { styles } from "./styles";
 
 interface SearchType {
   key: string;

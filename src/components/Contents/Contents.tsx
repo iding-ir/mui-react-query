@@ -2,43 +2,16 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import { Trans } from "react-i18next";
 
-import { IItem } from "../Items/Items";
+import { IStory } from "../../types";
 import Download from "../Download/Download";
-import { Styles } from "../../types";
-
-const styles: Styles = {
-  wrapper: {
-    padding: "1rem",
-    bgcolor: "background.paper",
-  },
-  container: {
-    padding: "1rem",
-    bgcolor: "background.paper",
-  },
-  header: {
-    width: "100%",
-    paddingBottom: "1rem",
-    marginBottom: "1rem",
-    borderBottom: "rgba(130, 130, 130, 0.4) 1px solid",
-  },
-  title: {
-    color: "primary.main",
-  },
-  author: {
-    color: "text.secondary",
-  },
-  content: {
-    color: "text.secondary",
-    margin: "1rem 0",
-  },
-};
+import { styles } from "./styles";
 
 interface Props {
-  item: IItem;
+  story: IStory;
 }
 
-const Contents = ({ item }: Props) => {
-  const { title, author, content } = item;
+const Contents = ({ story }: Props) => {
+  const { title, author, content } = story;
 
   return (
     <Box sx={styles.container}>
@@ -56,7 +29,7 @@ const Contents = ({ item }: Props) => {
         <Typography gutterBottom>{content}</Typography>
       </Box>
 
-      <Download item={item} />
+      <Download story={story} />
     </Box>
   );
 };

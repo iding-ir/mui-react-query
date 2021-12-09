@@ -4,28 +4,21 @@ import Button from "@mui/material/Button";
 import { Trans } from "react-i18next";
 
 import PDF from "../PDF/PDF";
-import { IItem } from "../Items/Items";
-import { Styles } from "../../types";
+import { IStory } from "../../types";
 import { ThemeContext } from "../Theme/useTheme";
-
-const styles: Styles = {
-  download: {
-    display: "inline-block !important",
-    color: "secondary.main",
-  },
-};
+import { styles } from "./styles";
 
 interface Props {
-  item: IItem;
+  story: IStory;
 }
 
-const Download = ({ item }: Props) => {
+const Download = ({ story }: Props) => {
   const { theme } = useContext(ThemeContext);
 
   return (
     <PDFDownloadLink
-      document={<PDF item={item} theme={theme} />}
-      fileName={item.title}
+      document={<PDF story={story} theme={theme} />}
+      fileName={story.title}
     >
       {({ blob, url, loading, error }) => (
         <Button sx={styles.download} disabled={loading} variant="contained">

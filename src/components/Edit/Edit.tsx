@@ -2,8 +2,8 @@ import { useQuery, useMutation, useQueryClient } from "react-query";
 import { useParams, useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
-import { getItem, editItem } from "../../api";
-import { IItem } from "../Items/Items";
+import { getStory, editStory } from "../../api";
+import { IStory } from "../../types";
 import Form from "../Form/Form";
 import NotFound from "../NotFound/NotFound";
 import Head from "../Head/Head";
@@ -17,14 +17,14 @@ const Edit = () => {
 
   const queryClient = useQueryClient();
 
-  const { mutateAsync, isLoading } = useMutation(editItem);
+  const { mutateAsync, isLoading } = useMutation(editStory);
 
-  const { data } = useQuery("item", () => getItem(id as string));
+  const { data } = useQuery("story", () => getStory(id as string));
 
-  const onSubmit = async (item: Partial<IItem>) => {
-    await mutateAsync({ ...item, id });
+  const onSubmit = async (story: Partial<IStory>) => {
+    await mutateAsync({ ...story, id });
 
-    queryClient.invalidateQueries("items");
+    queryClient.invalidateQueries("stories");
 
     navigate("/");
   };

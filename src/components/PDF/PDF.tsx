@@ -2,15 +2,15 @@ import { Trans } from "react-i18next";
 import { Page, Text, View, Document, StyleSheet } from "@react-pdf/renderer";
 import { Theme } from "@mui/material";
 
-import { IItem } from "../Items/Items";
+import { IStory } from "../../types";
 
 interface Props {
-  item: IItem;
+  story: IStory;
   theme: Theme;
 }
 
-const PDF = ({ item, theme }: Props) => {
-  const { title, author, content } = item;
+const PDF = ({ story, theme }: Props) => {
+  const { title, author, content } = story;
 
   const styles = StyleSheet.create({
     page: {

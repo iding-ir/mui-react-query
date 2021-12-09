@@ -9,36 +9,7 @@ import { useTranslation } from "react-i18next";
 import { ReactComponent as IconEN } from "../../assets/images/icon-en.svg";
 import { ReactComponent as IconES } from "../../assets/images/icon-es.svg";
 import { LanguageContext } from "./useLanguage";
-import { Styles } from "../../types";
-
-const styles: Styles = {
-  language: {
-    width: "150px",
-  },
-  select: {
-    div: {
-      display: "flex",
-      flexDirection: "row",
-      alignItems: "center",
-      minWidth: "unset",
-      padding: "0.2rem",
-      color: "secondary.main",
-
-      svg: {
-        width: "32px",
-        height: "32px",
-      },
-    },
-  },
-  icon: {
-    marginRight: "0.5rem",
-    padding: "0.2rem",
-  },
-  text: {
-    color: "text.primary",
-    padding: "0.2rem",
-  },
-};
+import { styles } from "./styles";
 
 interface ILanguage {
   value: string;
@@ -74,7 +45,7 @@ const Language = () => {
     setLanguage(language);
   };
 
-  const renderItems = () =>
+  const renderStories = () =>
     Object.values(languages).map((language: ILanguage) => {
       return (
         <MenuItem value={language.value} key={language.value}>
@@ -95,7 +66,7 @@ const Language = () => {
         variant="standard"
         disableUnderline={true}
       >
-        {renderItems()}
+        {renderStories()}
       </Select>
     </FormControl>
   );
