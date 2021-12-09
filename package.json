@@ -1,7 +1,7 @@
 {
-  "name": "mui-react-query",
+  "name": "story-to-pdf",
   "version": "2.4.4",
-  "description": "MUI react-query application.",
+  "description": "Story to PDF.",
   "keywords": [
     "React",
     "Typescript",
@@ -17,10 +17,10 @@
   "main": "./index",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/iding-ir/mui-react-query.git"
+    "url": "git+https://github.com/iding-ir/story-to-pdf.git"
   },
   "bugs": {
-    "url": "https://github.com/iding-ir/mui-react-query/issues"
+    "url": "https://github.com/iding-ir/story-to-pdf/issues"
   },
   "dependencies": {
     "@emotion/react": "^11.7.0",
