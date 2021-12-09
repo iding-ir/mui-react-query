@@ -7,11 +7,19 @@ export const styles: Styles = {
     margin: "1rem",
   },
   keyword: {
-    width: "calc(100% - 170px)",
+    width: {
+      xs: "calc(100% - 120px)",
+      md: "calc(100% - 180px)",
+      lg: "calc(100% - 240px)",
+    },
     marginRight: "0.5rem",
   },
   type: {
-    width: "170px",
+    width: {
+      xs: "120px",
+      md: "180px",
+      lg: "240px",
+    },
     marginLeft: "0.5rem",
   },
 };
