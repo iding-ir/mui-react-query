@@ -14,14 +14,15 @@ const styles: Styles = {
   search: {
     display: "flex",
     flexDirection: "row",
+    margin: "1rem",
   },
   keyword: {
     width: "calc(100% - 170px)",
-    margin: "0 0.5rem 0 1rem",
+    marginRight: "0.5rem",
   },
   type: {
     width: "170px",
-    margin: "0 1rem 0 0.5rem",
+    marginLeft: "0.5rem",
   },
 };
 

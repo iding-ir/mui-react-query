@@ -15,14 +15,17 @@ const styles: Styles = {
   loader: {
     margin: "1rem 0",
   },
+  form: {
+    margin: "1rem !important",
+  },
   input: {
-    margin: "0.5rem 0 !important",
+    marginBottom: "1rem",
   },
   textarea: {
-    margin: "0.5rem 0 !important",
+    marginBottom: "1rem",
   },
   button: {
-    margin: "0.5rem 0 !important",
+    marginBottom: "1rem",
   },
 };
 
@@ -56,7 +59,7 @@ const Form = ({ defaultValues, onSubmit, isLoading }: Props) => {
   const content = watch("content");
 
   return (
-    <Box component="form" onSubmit={handleSubmit(onSubmit)}>
+    <Box sx={styles.form} component="form" onSubmit={handleSubmit(onSubmit)}>
       <TextField
         sx={styles.input}
         fullWidth

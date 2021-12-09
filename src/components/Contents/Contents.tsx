@@ -17,8 +17,8 @@ const styles: Styles = {
   },
   header: {
     width: "100%",
-    padding: "1rem 0",
-    margin: "1rem 0",
+    paddingBottom: "1rem",
+    marginBottom: "1rem",
     borderBottom: "rgba(130, 130, 130, 0.4) 1px solid",
   },
   title: {
