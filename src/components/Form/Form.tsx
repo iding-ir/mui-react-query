@@ -41,9 +41,8 @@ const Form = ({ defaultValues, onSubmit, isLoading }: Props) => {
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    formState: { errors, isValid },
     reset,
-    watch,
   } = useForm({
     mode: "onTouched",
   });
@@ -53,10 +52,6 @@ const Form = ({ defaultValues, onSubmit, isLoading }: Props) => {
       reset(defaultValues);
     }
   }, [defaultValues, reset]);
-
-  const title = watch("title");
-  const author = watch("author");
-  const content = watch("content");
 
   return (
     <Box sx={styles.form} component="form" onSubmit={handleSubmit(onSubmit)}>
@@ -104,7 +99,7 @@ const Form = ({ defaultValues, onSubmit, isLoading }: Props) => {
           variant="contained"
           type="submit"
           size="large"
-          disabled={!title || !author || !content}
+          disabled={!isValid}
         >
           <Trans i18nKey="Form.submit" />
         </Button>
