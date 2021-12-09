@@ -1,5 +1,6 @@
 import { QueryClient, QueryClientProvider } from "react-query";
 import { ThemeProvider } from "@mui/material/styles";
+import { HelmetProvider } from "react-helmet-async";
 
 import "../../localization";
 import { useTheme, ThemeContext } from "../Theme/useTheme";
@@ -26,7 +27,9 @@ function App() {
         <LanguageContext.Provider value={{ language, setLanguage }}>
           <ThemeContext.Provider value={{ mode, setMode, theme }}>
             <ThemeProvider theme={theme}>
-              <Pages />
+              <HelmetProvider>
+                <Pages />
+              </HelmetProvider>
             </ThemeProvider>
           </ThemeContext.Provider>
         </LanguageContext.Provider>
