@@ -82,7 +82,9 @@ const Search = () => {
           variant="outlined"
         >
           {Object.values(searchTypes).map((searchType: SearchType) => (
-            <MenuItem value={searchType.key}>{t(searchType.label)}</MenuItem>
+            <MenuItem value={searchType.key} key={searchType.key}>
+              {t(searchType.label)}
+            </MenuItem>
           ))}
         </Select>
       </FormControl>
