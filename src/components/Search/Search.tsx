@@ -53,7 +53,9 @@ const Search = () => {
   return (
     <Box sx={styles.search}>
       <FormControl key="search-keyword" sx={styles.keyword}>
-        <InputLabel htmlFor="search-keyword">{t("Search.keyword")}</InputLabel>
+        <InputLabel htmlFor="search-keyword">
+          {t("Search.keyword", { type })}
+        </InputLabel>
 
         <OutlinedInput
           id="search-keyword"

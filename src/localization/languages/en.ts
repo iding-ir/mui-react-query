@@ -40,7 +40,7 @@ const localization = {
     es: "Spanish",
   },
   Search: {
-    keyword: "Search",
+    keyword: "Search by {{type}}",
     type: "Search by",
     author: "Author",
     title: "Title",
