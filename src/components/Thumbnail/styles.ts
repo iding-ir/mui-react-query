@@ -4,7 +4,6 @@ export const styles: Styles = {
   link: {
     a: {
       color: "text.primary",
-      textDecoration: "none",
       fontSize: "1rem",
     },
   },
