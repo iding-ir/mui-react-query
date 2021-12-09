@@ -61,7 +61,7 @@ const Search = () => {
           id="search-keyword"
           value={keyword}
           onChange={handleChange}
-          label={t("Search.keyword")}
+          label={t("Search.keyword", { type })}
           endAdornment={
             keyword && (
               <InputAdornment position="end">
