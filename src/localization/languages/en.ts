@@ -44,6 +44,7 @@ const localization = {
     type: "Search by",
     author: "Author",
     title: "Title",
+    clear: "Clear search",
   },
 };
 

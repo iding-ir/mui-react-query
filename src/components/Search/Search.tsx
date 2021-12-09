@@ -1,11 +1,14 @@
 import { useContext } from "react";
-import TextField from "@mui/material/TextField";
 import Box from "@mui/material/Box";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import InputLabel from "@mui/material/InputLabel";
 import Select, { SelectChangeEvent } from "@mui/material/Select";
 import { useTranslation } from "react-i18next";
+import OutlinedInput from "@mui/material/OutlinedInput";
+import InputAdornment from "@mui/material/InputAdornment";
+import IconButton from "@mui/material/IconButton";
+import HighlightOffIcon from "@mui/icons-material/HighlightOff";
 
 import { SearchContext } from "./useSearch";
 import { styles } from "./styles";
@@ -43,22 +46,41 @@ const Search = () => {
     setKeyword(event.target.value as string);
   };
 
+  const clearSearch = () => {
+    setKeyword("");
+  };
+
   return (
     <Box sx={styles.search}>
-      <TextField
-        value={keyword}
-        onChange={handleChange}
-        label={t("Search.keyword")}
-        variant="outlined"
-        InputLabelProps={{ shrink: true }}
-        sx={styles.keyword}
-      />
+      <FormControl key="search-keyword" sx={styles.keyword}>
+        <InputLabel htmlFor="search-keyword">{t("Search.keyword")}</InputLabel>
+
+        <OutlinedInput
+          id="search-keyword"
+          value={keyword}
+          onChange={handleChange}
+          label={t("Search.keyword")}
+          endAdornment={
+            keyword && (
+              <InputAdornment position="end">
+                <IconButton
+                  aria-label={t("Search.clear")}
+                  onClick={clearSearch}
+                  onMouseDown={clearSearch}
+                  edge="end"
+                >
+                  <HighlightOffIcon />
+                </IconButton>
+              </InputAdornment>
+            )
+          }
+        />
+      </FormControl>
 
       <FormControl key="search-type" sx={styles.type}>
-        <InputLabel id="search-type-label">{t("Search.type")}</InputLabel>
+        <InputLabel htmlFor="search-type">{t("Search.type")}</InputLabel>
 
         <Select
-          labelId="search-type-label"
           id="search-type"
           value={type}
           onChange={handleSelect}
