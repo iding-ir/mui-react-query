@@ -1,8 +1,12 @@
 import { Styles } from "../../types";
 
 export const styles: Styles = {
+  wrapper: {
+    a: {
+      textDecoration: "none !important",
+    },
+  },
   download: {
-    display: "inline-block !important",
     color: "secondary.main",
   },
 };

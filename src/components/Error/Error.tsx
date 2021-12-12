@@ -13,7 +13,7 @@ const Error = ({ error, field }: Props) => {
   return (
     <>
       {error?.type === "required" && (
-        <Typography color="error" sx={styles.error}>
+        <Typography color="error" sx={styles.error} variant="subtitle2">
           <Trans i18nKey="Error.required" values={{ field }} />
         </Typography>
       )}

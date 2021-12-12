@@ -2,13 +2,16 @@ import Box from "@mui/material/Box";
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
-import Button from "@mui/material/Button";
+import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 import { useMutation, useQueryClient } from "react-query";
 import LinearProgress from "@mui/material/LinearProgress";
 import { useNavigate } from "react-router-dom";
 import { Trans } from "react-i18next";
 import { Link } from "react-router-dom";
+import EditIcon from "@mui/icons-material/Edit";
+import DeleteIcon from "@mui/icons-material/DeleteOutline";
+import Tooltip from "@mui/material/Tooltip";
 
 import { deleteStory } from "../../api";
 import { IStory } from "../../types";
@@ -60,25 +63,29 @@ const Thumbnail = ({ story }: Props) => {
       </CardContent>
 
       <CardActions>
-        <Button
-          color="primary"
-          disabled={isLoading}
-          size="small"
-          onClick={handleEdit}
-        >
-          <Trans i18nKey="Story.edit" />
-        </Button>
+        <Tooltip title={<Trans i18nKey="Story.edit" />}>
+          <IconButton
+            color="primary"
+            disabled={isLoading}
+            size="small"
+            onClick={handleEdit}
+          >
+            <EditIcon />
+          </IconButton>
+        </Tooltip>
 
         <Box sx={styles.pusher} />
 
-        <Button
-          color="warning"
-          disabled={isLoading}
-          size="small"
-          onClick={handleDelete}
-        >
-          <Trans i18nKey="Story.delete" />
-        </Button>
+        <Tooltip title={<Trans i18nKey="Story.delete" />}>
+          <IconButton
+            color="warning"
+            disabled={isLoading}
+            size="small"
+            onClick={handleDelete}
+          >
+            <DeleteIcon />
+          </IconButton>
+        </Tooltip>
       </CardActions>
     </Card>
   );

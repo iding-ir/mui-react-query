@@ -6,6 +6,7 @@ import { useForm } from "react-hook-form";
 import LinearProgress from "@mui/material/LinearProgress";
 import { useTranslation } from "react-i18next";
 import { Trans } from "react-i18next";
+import SendIcon from "@mui/icons-material/Send";
 
 import { IStory } from "../../types";
 import Error from "../Error/Error";
@@ -79,6 +80,7 @@ const Form = ({ defaultValues, onSubmit, isLoading }: Props) => {
           type="submit"
           size="large"
           disabled={!isValid}
+          startIcon={<SendIcon />}
         >
           <Trans i18nKey="Form.submit" />
         </Button>
