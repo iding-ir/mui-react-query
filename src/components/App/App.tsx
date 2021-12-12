@@ -13,8 +13,8 @@ import Pages from "../Pages/Pages";
 const queryClient = new QueryClient();
 
 function App() {
-  const themeValues = useTheme({ defaultMode: "dark" });
-  const languageValues = useLanguage({ defaultLanguage: "en" });
+  const themeValues = useTheme();
+  const languageValues = useLanguage();
   const searchValues = useSearch();
   const dialogValues = useDialog();
   const snackbarValues = useSnackbar();

@@ -12,17 +12,17 @@ import { ReactComponent as IconES } from "../../assets/images/icon-es.svg";
 import { LanguageContext } from "./useLanguage";
 import { styles } from "./styles";
 
-interface ILanguage {
+export interface ILanguage {
   value: string;
   name: string;
   icon: ReactNode;
 }
 
-interface ILanguages {
+export interface ILanguages {
   [key: string]: ILanguage;
 }
 
-const languages: ILanguages = {
+export const languages: ILanguages = {
   en: {
     value: "en",
     name: "Language.en",

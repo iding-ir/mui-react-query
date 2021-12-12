@@ -1,35 +1,30 @@
 import { useState, useEffect, createContext } from "react";
 import { useTranslation } from "react-i18next";
 
+import getLanguage from "./getLanguage";
+
 interface ILanguageContext {
-  language: string;
+  language?: string;
   setLanguage: (language: string) => void;
 }
 
-const storedDefaultLanguage = localStorage.getItem("language");
-
 export const LanguageContext = createContext<ILanguageContext>({
-  language: "en",
+  language: undefined,
   setLanguage: () => {},
 });
 
-interface Props {
-  defaultLanguage?: string;
-}
-
-export const useLanguage = ({ defaultLanguage = "en" }: Props) => {
+export const useLanguage = (defaultLanguage?: string) => {
   const { i18n } = useTranslation();
 
-  const [language, setLanguage] = useState(
-    storedDefaultLanguage || defaultLanguage
-  );
+  const { iLanguage } = getLanguage(defaultLanguage);
+
+  const [language, setLanguage] = useState(iLanguage);
 
   useEffect(() => {
     i18n.changeLanguage(language);
 
     localStorage.setItem("language", language);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [language]);
+  }, [i18n, language]);
 
   return { language, setLanguage };
 };
