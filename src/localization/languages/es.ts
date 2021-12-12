@@ -46,6 +46,12 @@ const localization = {
     title: "Título",
     clear: "Borrar búsqueda",
   },
+  Prompt: {
+    title: "Alerta",
+    content: "¿Estás seguro de que quieres eliminar esta historia?",
+    submit: "Enviar",
+    cancel: "Cancelar",
+  },
 };
 
 export default localization;

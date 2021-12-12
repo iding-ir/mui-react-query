@@ -46,6 +46,12 @@ const localization = {
     title: "Title",
     clear: "Clear search",
   },
+  Prompt: {
+    title: "Alert",
+    content: "Are you sure you want to delete this story? <div>{{title}}</div>",
+    submit: "Submit",
+    cancel: "Cancel",
+  },
 };
 
 export default localization;

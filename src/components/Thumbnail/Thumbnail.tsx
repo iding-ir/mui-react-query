@@ -1,3 +1,5 @@
+import { useContext } from "react";
+import { useTranslation, Trans } from "react-i18next";
 import Box from "@mui/material/Box";
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
@@ -7,13 +9,13 @@ import Typography from "@mui/material/Typography";
 import { useMutation, useQueryClient } from "react-query";
 import LinearProgress from "@mui/material/LinearProgress";
 import { useNavigate } from "react-router-dom";
-import { Trans } from "react-i18next";
 import { Link } from "react-router-dom";
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/DeleteOutline";
 import Tooltip from "@mui/material/Tooltip";
 
 import { deleteStory } from "../../api";
+import { PromptContext } from "../Prompt/usePrompt";
 import { IStory } from "../../types";
 import { styles } from "./styles";
 
@@ -24,7 +26,11 @@ interface Props {
 const Thumbnail = ({ story }: Props) => {
   const { id, title, author } = story;
 
+  const { t } = useTranslation();
+
   const navigate = useNavigate();
+
+  const { setPrompt } = useContext(PromptContext);
 
   const queryClient = useQueryClient();
 
@@ -81,7 +87,22 @@ const Thumbnail = ({ story }: Props) => {
             color="warning"
             disabled={isLoading}
             size="small"
-            onClick={handleDelete}
+            onClick={() => {
+              setPrompt({
+                open: true,
+                title: t("Prompt.title"),
+                content: (
+                  <Trans
+                    i18nKey="Prompt.content"
+                    values={{ title }}
+                    components={{ div: <div /> }}
+                  />
+                ),
+                submit: t("Prompt.submit"),
+                cancel: t("Prompt.cancel"),
+                onSubmit: handleDelete,
+              });
+            }}
           >
             <DeleteIcon />
           </IconButton>

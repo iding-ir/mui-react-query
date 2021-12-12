@@ -2,6 +2,7 @@ import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 
 import Navbar from "../Navbar/Navbar";
+import Prompt from "../Prompt/Prompt";
 import { styles } from "./styles";
 
 interface Props {
@@ -18,6 +19,8 @@ export default function Layout({ children }: Props) {
 
         {children}
       </Box>
+
+      <Prompt />
     </Box>
   );
 }
