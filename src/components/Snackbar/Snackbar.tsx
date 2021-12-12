@@ -1,6 +1,6 @@
 import { useContext, SyntheticEvent } from "react";
 import Button from "@mui/material/Button";
-import { default as MUISnackbar } from "@mui/material/Snackbar";
+import { default as MuiSnackbar } from "@mui/material/Snackbar";
 import IconButton from "@mui/material/IconButton";
 import CloseIcon from "@mui/icons-material/Close";
 import MuiAlert from "@mui/material/Alert";
@@ -14,10 +14,6 @@ const Snackbar = () => {
   const { open, button, message, severity, duration } = snackbar;
 
   const handleClose = (event: SyntheticEvent | Event, reason?: string) => {
-    if (reason === "clickaway") {
-      return;
-    }
-
     setSnackbar({ ...snackbar, open: false });
   };
 
@@ -40,12 +36,10 @@ const Snackbar = () => {
 
   return (
     <div>
-      <MUISnackbar
+      <MuiSnackbar
         open={open}
-        autoHideDuration={duration}
         onClose={handleClose}
-        message={message}
-        action={action}
+        autoHideDuration={duration}
         sx={styles.content}
       >
         <MuiAlert
@@ -58,7 +52,7 @@ const Snackbar = () => {
         >
           {message}
         </MuiAlert>
-      </MUISnackbar>
+      </MuiSnackbar>
     </div>
   );
 };

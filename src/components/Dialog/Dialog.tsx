@@ -1,5 +1,5 @@
 import Button from "@mui/material/Button";
-import { default as MUIDialog } from "@mui/material/Dialog";
+import { default as MuiDialog } from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
@@ -25,7 +25,7 @@ const Dialog = () => {
   };
 
   return (
-    <MUIDialog
+    <MuiDialog
       open={open}
       onClose={handleClose}
       aria-labelledby="dialog-title"
@@ -48,7 +48,7 @@ const Dialog = () => {
           {submit}
         </Button>
       </DialogActions>
-    </MUIDialog>
+    </MuiDialog>
   );
 };
 
