@@ -46,7 +46,7 @@ const localization = {
     title: "Title",
     clear: "Clear search",
   },
-  Prompt: {
+  Dialog: {
     title: "Alert",
     content: "Are you sure you want to delete this story? <div>{{title}}</div>",
     submit: "Submit",

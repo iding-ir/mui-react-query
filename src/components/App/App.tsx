@@ -6,7 +6,7 @@ import "../../localization";
 import { useTheme, ThemeContext } from "../Theme/useTheme";
 import { useLanguage, LanguageContext } from "../Language/useLanguage";
 import { useSearch, SearchContext } from "../Search/useSearch";
-import { usePrompt, PromptContext } from "../Prompt/usePrompt";
+import { useDialog, DialogContext } from "../Dialog/useDialog";
 import Pages from "../Pages/Pages";
 
 const queryClient = new QueryClient();
@@ -15,11 +15,11 @@ function App() {
   const themeValues = useTheme({ defaultMode: "dark" });
   const languageValues = useLanguage({ defaultLanguage: "en" });
   const searchValues = useSearch();
-  const promptValues = usePrompt();
+  const dialogValues = useDialog();
 
   return (
     <QueryClientProvider client={queryClient}>
-      <PromptContext.Provider value={promptValues}>
+      <DialogContext.Provider value={dialogValues}>
         <SearchContext.Provider value={searchValues}>
           <LanguageContext.Provider value={languageValues}>
             <ThemeContext.Provider value={themeValues}>
@@ -31,7 +31,7 @@ function App() {
             </ThemeContext.Provider>
           </LanguageContext.Provider>
         </SearchContext.Provider>
-      </PromptContext.Provider>
+      </DialogContext.Provider>
     </QueryClientProvider>
   );
 }

@@ -46,7 +46,7 @@ const localization = {
     title: "Título",
     clear: "Borrar búsqueda",
   },
-  Prompt: {
+  Dialog: {
     title: "Alerta",
     content: "¿Estás seguro de que quieres eliminar esta historia?",
     submit: "Enviar",

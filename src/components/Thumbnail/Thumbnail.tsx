@@ -15,7 +15,7 @@ import DeleteIcon from "@mui/icons-material/DeleteOutline";
 import Tooltip from "@mui/material/Tooltip";
 
 import { deleteStory } from "../../api";
-import { PromptContext } from "../Prompt/usePrompt";
+import { DialogContext } from "../Dialog/useDialog";
 import { IStory } from "../../types";
 import { styles } from "./styles";
 
@@ -30,7 +30,7 @@ const Thumbnail = ({ story }: Props) => {
 
   const navigate = useNavigate();
 
-  const { setPrompt } = useContext(PromptContext);
+  const { setDialog } = useContext(DialogContext);
 
   const queryClient = useQueryClient();
 
@@ -88,18 +88,18 @@ const Thumbnail = ({ story }: Props) => {
             disabled={isLoading}
             size="small"
             onClick={() => {
-              setPrompt({
+              setDialog({
                 open: true,
-                title: t("Prompt.title"),
+                title: t("Dialog.title"),
                 content: (
                   <Trans
-                    i18nKey="Prompt.content"
+                    i18nKey="Dialog.content"
                     values={{ title: title.toUpperCase() }}
                     components={{ div: <div /> }}
                   />
                 ),
-                submit: t("Prompt.submit"),
-                cancel: t("Prompt.cancel"),
+                submit: t("Dialog.submit"),
+                cancel: t("Dialog.cancel"),
                 onSubmit: handleDelete,
               });
             }}
