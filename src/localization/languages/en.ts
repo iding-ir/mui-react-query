@@ -50,6 +50,7 @@ const localization = {
     title: "Alert",
     content: "Are you sure you want to delete this story? <div>{{title}}</div>",
     submit: "Submit",
+    delete: "Delete",
     cancel: "Cancel",
   },
 };

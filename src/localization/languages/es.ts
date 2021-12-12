@@ -50,6 +50,7 @@ const localization = {
     title: "Alerta",
     content: "¿Estás seguro de que quieres eliminar esta historia?",
     submit: "Enviar",
+    delete: "Borrar",
     cancel: "Cancelar",
   },
 };

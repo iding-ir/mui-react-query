@@ -98,7 +98,7 @@ const Thumbnail = ({ story }: Props) => {
                     components={{ div: <div /> }}
                   />
                 ),
-                submit: t("Dialog.submit"),
+                submit: t("Dialog.delete"),
                 cancel: t("Dialog.cancel"),
                 onSubmit: handleDelete,
               });
