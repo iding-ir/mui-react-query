@@ -7,6 +7,6 @@ export const styles: Styles = {
     },
   },
   download: {
-    color: "secondary.main",
+    color: (theme) => theme.palette.secondary.main,
   },
 };

@@ -11,7 +11,7 @@ export const styles: Styles = {
       alignItems: "center",
       minWidth: "unset",
       padding: "0.2rem",
-      color: "secondary.main",
+      color: (theme) => theme.palette.secondary.main,
 
       svg: {
         width: "32px",
@@ -24,7 +24,7 @@ export const styles: Styles = {
     padding: "0.2rem",
   },
   text: {
-    color: "text.primary",
+    color: (theme) => theme.palette.text.primary,
     padding: "0.2rem",
   },
 };

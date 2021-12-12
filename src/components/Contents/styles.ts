@@ -3,11 +3,11 @@ import { Styles } from "../../types";
 export const styles: Styles = {
   wrapper: {
     padding: "1rem",
-    bgcolor: "background.paper",
+    backgroundColor: (theme) => theme.palette.background.paper,
   },
   container: {
     padding: "1rem",
-    bgcolor: "background.paper",
+    backgroundColor: (theme) => theme.palette.background.paper,
   },
   header: {
     width: "100%",
@@ -16,13 +16,13 @@ export const styles: Styles = {
     borderBottom: "rgba(130, 130, 130, 0.4) 1px solid",
   },
   title: {
-    color: "primary.main",
+    color: (theme) => theme.palette.primary.main,
   },
   author: {
-    color: "text.secondary",
+    color: (theme) => theme.palette.text.secondary,
   },
   content: {
-    color: "text.secondary",
+    color: (theme) => theme.palette.text.secondary,
     margin: "1rem 0",
   },
 };
