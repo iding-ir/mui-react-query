@@ -68,7 +68,7 @@ const Thumbnail = ({ story }: Props) => {
         </Typography>
       </CardContent>
 
-      <CardActions>
+      <CardActions sx={styles.actions}>
         <Tooltip title={<Trans i18nKey="Story.edit" />}>
           <IconButton
             color="primary"

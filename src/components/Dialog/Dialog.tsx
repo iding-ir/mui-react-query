@@ -33,7 +33,7 @@ const Dialog = () => {
     >
       <DialogTitle id="dialog-title">{title}</DialogTitle>
 
-      <DialogContent sx={styles.dialog}>
+      <DialogContent sx={styles.content}>
         <DialogContentText id="dialog-description">{content}</DialogContentText>
       </DialogContent>
 

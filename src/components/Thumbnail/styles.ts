@@ -4,7 +4,7 @@ export const styles: Styles = {
   link: {
     a: {
       color: "text.primary",
-      fontSize: "1rem",
+      fontSize: "1.1rem",
     },
   },
   loader: {
@@ -20,8 +20,11 @@ export const styles: Styles = {
     flexGrow: 1,
   },
   author: {
-    fontSize: "1rem",
+    fontSize: "0.9rem",
     color: "text.secondary",
+  },
+  actions: {
+    borderTop: "1px solid rgba(130, 130, 130, 0.2)",
   },
   pusher: {
     width: "100%",
