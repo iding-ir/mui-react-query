@@ -1,3 +1,4 @@
+import { ReactNode } from "react";
 import { useContext } from "react";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
@@ -14,7 +15,7 @@ import { styles } from "./styles";
 interface ILanguage {
   value: string;
   name: string;
-  icon: any;
+  icon: ReactNode;
 }
 
 interface ILanguages {

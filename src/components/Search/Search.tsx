@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, ChangeEvent } from "react";
 import Box from "@mui/material/Box";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
@@ -42,7 +42,7 @@ const Search = () => {
     setType(event.target.value as string);
   };
 
-  const handleChange = (event: any) => {
+  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     setKeyword(event.target.value as string);
   };
 
