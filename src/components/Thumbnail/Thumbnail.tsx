@@ -40,7 +40,7 @@ const Thumbnail = ({ story }: Props) => {
   };
 
   return (
-    <Card sx={styles.story} key={id}>
+    <Card sx={styles.story} key={id} data-test-id="Thumbnail_CARD">
       <CardContent sx={styles.content}>
         <Typography variant="h6" component="div">
           {isLoading ? (
@@ -65,6 +65,7 @@ const Thumbnail = ({ story }: Props) => {
           disabled={isLoading}
           size="small"
           onClick={handleEdit}
+          data-test-id="Thumbnail_EDIT"
         >
           <Trans i18nKey="Story.edit" />
         </Button>
@@ -76,6 +77,7 @@ const Thumbnail = ({ story }: Props) => {
           disabled={isLoading}
           size="small"
           onClick={handleDelete}
+          data-test-id="Thumbnail_DELETE"
         >
           <Trans i18nKey="Story.delete" />
         </Button>

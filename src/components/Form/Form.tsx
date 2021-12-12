@@ -43,6 +43,7 @@ const Form = ({ defaultValues, onSubmit, isLoading }: Props) => {
         label={t("Form.title")}
         variant="outlined"
         InputLabelProps={{ shrink: true }}
+        data-test-id="Form_TITLE"
         {...register("title", { required: true })}
       />
 
@@ -54,6 +55,7 @@ const Form = ({ defaultValues, onSubmit, isLoading }: Props) => {
         label={t("Form.author")}
         variant="outlined"
         InputLabelProps={{ shrink: true }}
+        data-test-id="Form_AUTHOR"
         {...register("author", { required: true })}
       />
 
@@ -65,6 +67,7 @@ const Form = ({ defaultValues, onSubmit, isLoading }: Props) => {
         label={t("Form.content")}
         variant="outlined"
         InputLabelProps={{ shrink: true }}
+        data-test-id="Form_CONTENT"
         multiline
         rows={4}
         {...register("content", { required: true })}
@@ -82,6 +85,7 @@ const Form = ({ defaultValues, onSubmit, isLoading }: Props) => {
           type="submit"
           size="large"
           disabled={!isValid}
+          data-test-id="Form_SUBMIT"
         >
           <Trans i18nKey="Form.submit" />
         </Button>

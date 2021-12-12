@@ -10,7 +10,7 @@ interface Props {
 
 const Error = ({ error, field }: Props) => {
   return error ? (
-    <Typography color="error" sx={styles.error}>
+    <Typography color="error" sx={styles.error} data-test-id="Error_REQUIRED">
       <Trans i18nKey="Error.required" values={{ field }} />
     </Typography>
   ) : null;

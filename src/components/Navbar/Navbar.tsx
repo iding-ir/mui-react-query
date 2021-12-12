@@ -22,7 +22,7 @@ const Navbar = () => {
         </Typography>
 
         <Typography variant="h6" noWrap component="div">
-          <Box sx={styles.link}>
+          <Box sx={styles.link} data-test-id="Navbar_CREATE">
             <Link to="/create">
               <Trans i18nKey="Navbar.create" />
             </Link>
