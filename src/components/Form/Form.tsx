@@ -43,10 +43,9 @@ const Form = ({ defaultValues, onSubmit, isLoading }: Props) => {
         label={t("Form.title")}
         variant="outlined"
         InputLabelProps={{ shrink: true }}
+        helperText={<Error error={errors.title} field={t("Form.title")} />}
         {...register("title", { required: true })}
       />
-
-      <Error error={errors.title} field={t("Form.title")} />
 
       <TextField
         sx={styles.input}
@@ -54,10 +53,9 @@ const Form = ({ defaultValues, onSubmit, isLoading }: Props) => {
         label={t("Form.author")}
         variant="outlined"
         InputLabelProps={{ shrink: true }}
+        helperText={<Error error={errors.author} field={t("Form.author")} />}
         {...register("author", { required: true })}
       />
-
-      <Error error={errors.author} field={t("Form.author")} />
 
       <TextField
         sx={styles.input}
@@ -65,12 +63,11 @@ const Form = ({ defaultValues, onSubmit, isLoading }: Props) => {
         label={t("Form.content")}
         variant="outlined"
         InputLabelProps={{ shrink: true }}
+        helperText={<Error error={errors.content} field={t("Form.content")} />}
         multiline
         rows={4}
         {...register("content", { required: true })}
       />
-
-      <Error error={errors.content} field={t("Form.content")} />
 
       {isLoading ? (
         <LinearProgress sx={styles.loader} />
