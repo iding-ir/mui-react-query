@@ -54,14 +54,14 @@ const Search = () => {
     <Box sx={styles.search}>
       <FormControl key="search-keyword" sx={styles.keyword}>
         <InputLabel htmlFor="search-keyword">
-          {t("Search.keyword", { type })}
+          {t("Search.keyword", { type: t(searchTypes[type].label) })}
         </InputLabel>
 
         <OutlinedInput
           id="search-keyword"
           value={keyword}
           onChange={handleChange}
-          label={t("Search.keyword", { type })}
+          label={t("Search.keyword", { type: t(searchTypes[type].label) })}
           endAdornment={
             keyword && (
               <InputAdornment position="end">
