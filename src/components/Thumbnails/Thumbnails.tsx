@@ -4,7 +4,7 @@ import CircularProgress from "@mui/material/CircularProgress";
 import Box from "@mui/material/Box";
 
 import { getStories } from "../../api";
-import Story from "../Thumbnail/Thumbnail";
+import Thumbnail from "../Thumbnail/Thumbnail";
 import { SearchContext } from "../Search/useSearch";
 import { IStory } from "../../types";
 import { styles } from "./styles";
@@ -27,7 +27,7 @@ const Thumbnails = () => {
         <CircularProgress sx={styles.loader} />
       ) : (
         getFilteredStories(stories).map((story: IStory) => (
-          <Story key={story.id} story={story} />
+          <Thumbnail key={story.id} story={story} />
         ))
       )}
     </Box>

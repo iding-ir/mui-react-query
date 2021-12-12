@@ -94,7 +94,7 @@ const Thumbnail = ({ story }: Props) => {
                 content: (
                   <Trans
                     i18nKey="Prompt.content"
-                    values={{ title }}
+                    values={{ title: title.toUpperCase() }}
                     components={{ div: <div /> }}
                   />
                 ),

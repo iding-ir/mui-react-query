@@ -1,6 +1,6 @@
 import { useTranslation } from "react-i18next";
 
-import Stories from "../Thumbnails/Thumbnails";
+import Thumbnails from "../Thumbnails/Thumbnails";
 import Head from "../Head/Head";
 import Search from "../Search/Search";
 
@@ -13,7 +13,7 @@ const Home = () => {
 
       <Search />
 
-      <Stories />
+      <Thumbnails />
     </>
   );
 };
