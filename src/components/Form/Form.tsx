@@ -13,7 +13,7 @@ import { styles } from "./styles";
 
 interface Props {
   defaultValues: IStory | {};
-  onSubmit: any;
+  onSubmit: (story: Partial<IStory>) => void;
   isLoading: boolean;
 }
 
