@@ -89,7 +89,7 @@ const Thumbnail = ({ story }: Props) => {
 
       <CardActions sx={styles.actions}>
         <Tooltip title={<Trans i18nKey="Story.edit" />}>
-          <>
+          <div>
             <IconButton
               color="primary"
               disabled={isLoading}
@@ -98,13 +98,13 @@ const Thumbnail = ({ story }: Props) => {
             >
               <EditIcon />
             </IconButton>
-          </>
+          </div>
         </Tooltip>
 
         <Box sx={styles.pusher} />
 
         <Tooltip title={<Trans i18nKey="Story.delete" />}>
-          <>
+          <div>
             <IconButton
               color="warning"
               disabled={isLoading}
@@ -128,7 +128,7 @@ const Thumbnail = ({ story }: Props) => {
             >
               <DeleteIcon />
             </IconButton>
-          </>
+          </div>
         </Tooltip>
       </CardActions>
     </Card>
