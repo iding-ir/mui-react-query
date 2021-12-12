@@ -53,6 +53,21 @@ const localization = {
     delete: "Delete",
     cancel: "Cancel",
   },
+  Snackbar: {
+    close: "Close",
+  },
+  Create: {
+    success: "Story was created successfully.",
+    failure: "Failed to create story.",
+  },
+  Edit: {
+    success: "Story was edited successfully.",
+    failure: "Failed to edit story.",
+  },
+  Delete: {
+    success: "Story was deleted successfully.",
+    failure: "Failed to delete story.",
+  },
 };
 
 export default localization;

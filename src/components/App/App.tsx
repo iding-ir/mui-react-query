@@ -7,6 +7,7 @@ import { useTheme, ThemeContext } from "../Theme/useTheme";
 import { useLanguage, LanguageContext } from "../Language/useLanguage";
 import { useSearch, SearchContext } from "../Search/useSearch";
 import { useDialog, DialogContext } from "../Dialog/useDialog";
+import { useSnackbar, SnackbarContext } from "../Snackbar/useSnackbar";
 import Pages from "../Pages/Pages";
 
 const queryClient = new QueryClient();
@@ -16,22 +17,25 @@ function App() {
   const languageValues = useLanguage({ defaultLanguage: "en" });
   const searchValues = useSearch();
   const dialogValues = useDialog();
+  const snackbarValues = useSnackbar();
 
   return (
     <QueryClientProvider client={queryClient}>
-      <DialogContext.Provider value={dialogValues}>
-        <SearchContext.Provider value={searchValues}>
-          <LanguageContext.Provider value={languageValues}>
-            <ThemeContext.Provider value={themeValues}>
-              <ThemeProvider theme={themeValues.theme}>
-                <HelmetProvider>
-                  <Pages />
-                </HelmetProvider>
-              </ThemeProvider>
-            </ThemeContext.Provider>
-          </LanguageContext.Provider>
-        </SearchContext.Provider>
-      </DialogContext.Provider>
+      <SnackbarContext.Provider value={snackbarValues}>
+        <DialogContext.Provider value={dialogValues}>
+          <SearchContext.Provider value={searchValues}>
+            <LanguageContext.Provider value={languageValues}>
+              <ThemeContext.Provider value={themeValues}>
+                <ThemeProvider theme={themeValues.theme}>
+                  <HelmetProvider>
+                    <Pages />
+                  </HelmetProvider>
+                </ThemeProvider>
+              </ThemeContext.Provider>
+            </LanguageContext.Provider>
+          </SearchContext.Provider>
+        </DialogContext.Provider>
+      </SnackbarContext.Provider>
     </QueryClientProvider>
   );
 }

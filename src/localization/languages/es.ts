@@ -54,6 +54,21 @@ const localization = {
     delete: "Borrar",
     cancel: "Cancelar",
   },
+  Snackbar: {
+    close: "Cerca",
+  },
+  Create: {
+    success: "La historia se creó con éxito.",
+    failure: "No se pudo crear la historia.",
+  },
+  Edit: {
+    success: "La historia se editó correctamente.",
+    failure: "No se pudo editar la historia.",
+  },
+  Delete: {
+    success: "La historia se eliminó correctamente.",
+    failure: "No se pudo borrar la historia.",
+  },
 };
 
 export default localization;

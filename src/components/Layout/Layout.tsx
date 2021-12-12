@@ -3,6 +3,7 @@ import Toolbar from "@mui/material/Toolbar";
 
 import Navbar from "../Navbar/Navbar";
 import Dialog from "../Dialog/Dialog";
+import Snackbar from "../Snackbar/Snackbar";
 import { styles } from "./styles";
 
 interface Props {
@@ -21,6 +22,8 @@ export default function Layout({ children }: Props) {
       </Box>
 
       <Dialog />
+
+      <Snackbar />
     </Box>
   );
 }

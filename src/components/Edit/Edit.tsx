@@ -1,3 +1,4 @@
+import { useContext } from "react";
 import { useQuery, useMutation, useQueryClient } from "react-query";
 import { useParams, useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
@@ -7,9 +8,12 @@ import { IStory } from "../../types";
 import Form from "../Form/Form";
 import NotFound from "../NotFound/NotFound";
 import Head from "../Head/Head";
+import { SnackbarContext } from "../Snackbar/useSnackbar";
 
 const Edit = () => {
   const { t } = useTranslation();
+
+  const { setSnackbar } = useContext(SnackbarContext);
 
   const { id } = useParams();
 
@@ -22,11 +26,27 @@ const Edit = () => {
   const { data } = useQuery("story", () => getStory(id as string));
 
   const onSubmit = async (story: Partial<IStory>) => {
-    await mutateAsync({ ...story, id });
+    try {
+      await mutateAsync({ ...story, id });
 
-    queryClient.invalidateQueries("stories");
+      queryClient.invalidateQueries("stories");
 
-    navigate("/");
+      navigate("/");
+
+      setSnackbar({
+        open: true,
+        button: t("Snackbar.close"),
+        message: t("Edit.success"),
+        severity: "success",
+      });
+    } catch (error) {
+      setSnackbar({
+        open: true,
+        button: t("Snackbar.close"),
+        message: t("Edit.failure"),
+        severity: "error",
+      });
+    }
   };
 
   return data === "Not found" ? (

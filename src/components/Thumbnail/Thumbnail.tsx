@@ -18,6 +18,7 @@ import { deleteStory } from "../../api";
 import { DialogContext } from "../Dialog/useDialog";
 import { IStory } from "../../types";
 import { styles } from "./styles";
+import { SnackbarContext } from "../Snackbar/useSnackbar";
 
 interface Props {
   story: IStory;
@@ -27,6 +28,8 @@ const Thumbnail = ({ story }: Props) => {
   const { id, title, author } = story;
 
   const { t } = useTranslation();
+
+  const { setSnackbar } = useContext(SnackbarContext);
 
   const navigate = useNavigate();
 
@@ -43,9 +46,25 @@ const Thumbnail = ({ story }: Props) => {
   };
 
   const handleDelete = async () => {
-    await mutateAsync(id);
+    try {
+      await mutateAsync(id);
 
-    queryClient.invalidateQueries("stories");
+      queryClient.invalidateQueries("stories");
+
+      setSnackbar({
+        open: true,
+        button: t("Snackbar.close"),
+        message: t("Delete.success"),
+        severity: "success",
+      });
+    } catch (error) {
+      setSnackbar({
+        open: true,
+        button: t("Snackbar.close"),
+        message: t("Delete.failure"),
+        severity: "error",
+      });
+    }
   };
 
   return (
