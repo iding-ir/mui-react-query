@@ -70,42 +70,46 @@ const Thumbnail = ({ story }: Props) => {
 
       <CardActions sx={styles.actions}>
         <Tooltip title={<Trans i18nKey="Story.edit" />}>
-          <IconButton
-            color="primary"
-            disabled={isLoading}
-            size="small"
-            onClick={handleEdit}
-          >
-            <EditIcon />
-          </IconButton>
+          <>
+            <IconButton
+              color="primary"
+              disabled={isLoading}
+              size="small"
+              onClick={handleEdit}
+            >
+              <EditIcon />
+            </IconButton>
+          </>
         </Tooltip>
 
         <Box sx={styles.pusher} />
 
         <Tooltip title={<Trans i18nKey="Story.delete" />}>
-          <IconButton
-            color="warning"
-            disabled={isLoading}
-            size="small"
-            onClick={() => {
-              setDialog({
-                open: true,
-                title: t("Dialog.title"),
-                content: (
-                  <Trans
-                    i18nKey="Dialog.content"
-                    values={{ title: title.toUpperCase() }}
-                    components={{ div: <div /> }}
-                  />
-                ),
-                submit: t("Dialog.delete"),
-                cancel: t("Dialog.cancel"),
-                onSubmit: handleDelete,
-              });
-            }}
-          >
-            <DeleteIcon />
-          </IconButton>
+          <>
+            <IconButton
+              color="warning"
+              disabled={isLoading}
+              size="small"
+              onClick={() => {
+                setDialog({
+                  open: true,
+                  title: t("Dialog.title"),
+                  content: (
+                    <Trans
+                      i18nKey="Dialog.content"
+                      values={{ title: title.toUpperCase() }}
+                      components={{ p: <p /> }}
+                    />
+                  ),
+                  submit: t("Dialog.delete"),
+                  cancel: t("Dialog.cancel"),
+                  onSubmit: handleDelete,
+                });
+              }}
+            >
+              <DeleteIcon />
+            </IconButton>
+          </>
         </Tooltip>
       </CardActions>
     </Card>

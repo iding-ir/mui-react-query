@@ -48,7 +48,8 @@ const localization = {
   },
   Dialog: {
     title: "Alerta",
-    content: "¿Estás seguro de que quieres eliminar esta historia?",
+    content:
+      "¿Estás seguro de que quieres eliminar esta historia? <p>{{title}}</p>",
     submit: "Enviar",
     delete: "Borrar",
     cancel: "Cancelar",
