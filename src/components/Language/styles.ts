@@ -2,7 +2,7 @@ import { Styles } from "../../types";
 
 export const styles: Styles = {
   language: {
-    width: "150px",
+    width: { xs: "75px", sm: "150px" },
   },
   select: {
     div: {
@@ -26,5 +26,6 @@ export const styles: Styles = {
   text: {
     color: (theme) => theme.palette.text.primary,
     padding: "0.2rem",
+    display: { xs: "none !important", sm: "block !important" },
   },
 };

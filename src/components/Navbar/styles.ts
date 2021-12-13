@@ -3,6 +3,7 @@ import { Styles } from "../../types";
 export const styles: Styles = {
   link: {
     textOverflow: "unset",
+    flexShrink: "0",
     '&[data-selected="true"]': {
       borderRadius: "4px",
       backgroundColor: (theme) =>

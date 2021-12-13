@@ -36,12 +36,12 @@ export const routes: IRoutes = {
     key: "edit",
     path: "/edit/:id",
     element: <Edit />,
-    navbar: true,
+    navbar: false,
   },
   story: {
     key: "story",
     path: "/story/:id",
     element: <Story />,
-    navbar: true,
+    navbar: false,
   },
 };
