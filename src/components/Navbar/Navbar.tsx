@@ -46,9 +46,9 @@ const Navbar = () => {
 
         <Box sx={styles.pusher} />
 
-        <Language />
-
         <Theme />
+
+        <Language />
       </Toolbar>
     </AppBar>
   );
