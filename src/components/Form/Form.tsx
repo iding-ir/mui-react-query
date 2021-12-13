@@ -27,7 +27,7 @@ const Form = ({ defaultValues, onSubmit, isLoading }: Props) => {
     formState: { errors, isValid },
     reset,
   } = useForm({
-    mode: "onTouched",
+    mode: "all",
   });
 
   useEffect(() => {
