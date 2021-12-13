@@ -2,26 +2,21 @@ import CssBaseline from "@mui/material/CssBaseline";
 import { HashRouter as Router, Routes, Route } from "react-router-dom";
 
 import Layout from "../Layout/Layout";
-import Home from "../Home/Home";
-import Create from "../Create/Create";
-import Edit from "../Edit/Edit";
-import Story from "../Story/Story";
+import { routes, IRoute } from "./Routes";
 
 const Pages = () => {
+  const renderRoutes = () => {
+    return Object.values(routes).map(({ path, element }: IRoute) => {
+      return <Route path={path} element={element} />;
+    });
+  };
+
   return (
     <Router>
       <CssBaseline />
 
       <Layout>
-        <Routes>
-          <Route path="/" element={<Home />} />
-
-          <Route path="/create" element={<Create />} />
-
-          <Route path="/edit/:id" element={<Edit />} />
-
-          <Route path="/story/:id" element={<Story />} />
-        </Routes>
+        <Routes>{renderRoutes()}</Routes>
       </Layout>
     </Router>
   );

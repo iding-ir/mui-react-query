@@ -8,26 +8,29 @@ import { Trans } from "react-i18next";
 import Language from "../Language/Language";
 import Theme from "../Theme/Theme";
 import { styles } from "./styles";
+import { routes, IRoute } from "../Pages/Routes";
 
 const Navbar = () => {
+  const renderTabs = () => {
+    return Object.values(routes).map(({ path, title, navbar }: IRoute) => {
+      return (
+        navbar && (
+          <Typography variant="h6" noWrap component="div">
+            <Box sx={styles.link}>
+              <Link to={path}>
+                <Trans i18nKey={title} />
+              </Link>
+            </Box>
+          </Typography>
+        )
+      );
+    });
+  };
+
   return (
     <AppBar position="fixed">
       <Toolbar>
-        <Typography variant="h6" noWrap component="div">
-          <Box sx={styles.link}>
-            <Link to="/">
-              <Trans i18nKey="Navbar.home" />
-            </Link>
-          </Box>
-        </Typography>
-
-        <Typography variant="h6" noWrap component="div">
-          <Box sx={styles.link}>
-            <Link to="/create">
-              <Trans i18nKey="Navbar.create" />
-            </Link>
-          </Box>
-        </Typography>
+        {renderTabs()}
 
         <Box sx={styles.pusher} />
 
