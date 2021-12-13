@@ -31,7 +31,9 @@ const Dialog = () => {
       aria-labelledby="dialog-title"
       aria-describedby="dialog-description"
     >
-      <DialogTitle id="dialog-title">{title}</DialogTitle>
+      <DialogTitle sx={styles.title} id="dialog-title">
+        {title}
+      </DialogTitle>
 
       <DialogContent sx={styles.content} dividers>
         <DialogContentText id="dialog-description" component="div">
@@ -39,7 +41,7 @@ const Dialog = () => {
         </DialogContentText>
       </DialogContent>
 
-      <DialogActions>
+      <DialogActions sx={styles.actions}>
         <Button color="inherit" onClick={handleClose}>
           {cancel}
         </Button>
