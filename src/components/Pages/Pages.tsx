@@ -1,5 +1,5 @@
 import CssBaseline from "@mui/material/CssBaseline";
-import { HashRouter as Router, Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 
 import Layout from "../Layout/Layout";
 import { routes, IRoute } from "./routes";
@@ -12,13 +12,13 @@ const Pages = () => {
   };
 
   return (
-    <Router>
+    <>
       <CssBaseline />
 
       <Layout>
         <Routes>{renderRoutes()}</Routes>
       </Layout>
-    </Router>
+    </>
   );
 };
 

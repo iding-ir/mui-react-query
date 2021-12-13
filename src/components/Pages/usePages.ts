@@ -1,10 +1,12 @@
-import { useState, useEffect, createContext } from "react";
-
-import getPage from "./getPage";
+import { useState, createContext } from "react";
 
 export interface PagesOptions {
   current: string;
 }
+
+const iPage = {
+  current: "home",
+};
 
 interface IPagesContext {
   pages: PagesOptions;
@@ -12,18 +14,12 @@ interface IPagesContext {
 }
 
 export const PagesContext = createContext<IPagesContext>({
-  pages: { current: "" },
+  pages: iPage,
   setPages: () => {},
 });
 
-export const usePages = (defaultPage?: string) => {
-  const { iPage } = getPage(defaultPage);
-
-  const [pages, setPages] = useState({ current: iPage });
-
-  useEffect(() => {
-    localStorage.setItem("pages", pages.current);
-  }, [pages]);
+export const usePages = () => {
+  const [pages, setPages] = useState(iPage);
 
   return { pages, setPages };
 };
