@@ -12,7 +12,7 @@ import { SnackbarContext } from "../Snackbar/useSnackbar";
 const Create = () => {
   const { t } = useTranslation();
 
-  const { setSnackbar } = useContext(SnackbarContext);
+  const { snackbar, setSnackbar } = useContext(SnackbarContext);
 
   const navigate = useNavigate();
 
@@ -29,6 +29,7 @@ const Create = () => {
       navigate("/");
 
       setSnackbar({
+        ...snackbar,
         open: true,
         button: t("Snackbar.close"),
         message: t("Create.success"),
@@ -36,6 +37,7 @@ const Create = () => {
       });
     } catch (error) {
       setSnackbar({
+        ...snackbar,
         open: true,
         button: t("Snackbar.close"),
         message: t("Create.failure"),

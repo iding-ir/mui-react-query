@@ -13,7 +13,7 @@ import { SnackbarContext } from "../Snackbar/useSnackbar";
 const Edit = () => {
   const { t } = useTranslation();
 
-  const { setSnackbar } = useContext(SnackbarContext);
+  const { snackbar, setSnackbar } = useContext(SnackbarContext);
 
   const { id } = useParams();
 
@@ -34,6 +34,7 @@ const Edit = () => {
       navigate("/");
 
       setSnackbar({
+        ...snackbar,
         open: true,
         button: t("Snackbar.close"),
         message: t("Edit.success"),
@@ -41,6 +42,7 @@ const Edit = () => {
       });
     } catch (error) {
       setSnackbar({
+        ...snackbar,
         open: true,
         button: t("Snackbar.close"),
         message: t("Edit.failure"),

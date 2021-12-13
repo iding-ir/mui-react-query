@@ -29,7 +29,7 @@ const Thumbnail = ({ story }: Props) => {
 
   const { t } = useTranslation();
 
-  const { setSnackbar } = useContext(SnackbarContext);
+  const { snackbar, setSnackbar } = useContext(SnackbarContext);
 
   const navigate = useNavigate();
 
@@ -52,6 +52,7 @@ const Thumbnail = ({ story }: Props) => {
       queryClient.invalidateQueries("stories");
 
       setSnackbar({
+        ...snackbar,
         open: true,
         button: t("Snackbar.close"),
         message: t("Delete.success"),
@@ -59,6 +60,7 @@ const Thumbnail = ({ story }: Props) => {
       });
     } catch (error) {
       setSnackbar({
+        ...snackbar,
         open: true,
         button: t("Snackbar.close"),
         message: t("Delete.failure"),

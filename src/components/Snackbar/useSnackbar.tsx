@@ -14,7 +14,7 @@ const iSnackbar: SnackbarOptions = {
   button: "",
   message: "",
   severity: undefined,
-  duration: 10000,
+  duration: 6000,
 };
 
 interface ISnackbarContext {
