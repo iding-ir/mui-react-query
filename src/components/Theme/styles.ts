@@ -3,7 +3,7 @@ import { Styles } from "../../types";
 export const styles: Styles = {
   switch: {
     "& .MuiSwitch-switchBase": {
-      margin: 0.5,
+      margin: "3px 4px",
       padding: 0,
       transform: "translateX(0)",
       "&.Mui-checked": {
