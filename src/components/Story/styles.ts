@@ -5,6 +5,7 @@ export const styles: Styles = {
     display: "flex",
     flexDirection: "column",
     width: "100%",
+    padding: "1rem",
   },
   loader: {
     position: "relative",

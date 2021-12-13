@@ -1,14 +1,8 @@
 import { Styles } from "../../types";
 
 export const styles: Styles = {
-  wrapper: {
-    padding: "1rem",
-    backgroundColor: (theme) => theme.palette.background.paper,
-  },
-  container: {
-    padding: "1rem",
-    backgroundColor: (theme) => theme.palette.background.paper,
-  },
+  wrapper: {},
+  container: {},
   header: {
     width: "100%",
     paddingBottom: "1rem",

@@ -10,7 +10,7 @@ export const styles: Styles = {
   loader: {
     margin: "1rem 0",
   },
-  story: {
+  thumbnail: {
     margin: "1rem",
     display: "flex",
     flexDirection: "column",

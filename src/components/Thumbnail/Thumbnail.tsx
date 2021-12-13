@@ -70,7 +70,7 @@ const Thumbnail = ({ story }: Props) => {
   };
 
   return (
-    <Card sx={styles.story} key={id}>
+    <Card sx={styles.thumbnail} key={id}>
       <CardContent sx={styles.content}>
         <Typography variant="h6" component="div">
           {isLoading ? (

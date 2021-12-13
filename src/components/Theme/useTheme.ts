@@ -11,10 +11,13 @@ interface IThemeContext {
   theme: Theme;
 }
 
+const iThemeLight = createTheme({ palette: { mode: "light" } });
+const iThemeDark = createTheme({ palette: { mode: "dark" } });
+
 export const ThemeContext = createContext<IThemeContext>({
   mode: undefined,
   setMode: () => {},
-  theme: createTheme({}),
+  theme: iThemeLight,
 });
 
 export const useTheme = (defaultMode?: PaletteMode) => {
@@ -27,6 +30,24 @@ export const useTheme = (defaultMode?: PaletteMode) => {
   }, [mode]);
 
   const theme = createTheme({
+    components: {
+      MuiOutlinedInput: {
+        styleOverrides: {
+          input: {
+            backgroundColor:
+              mode === "dark"
+                ? iThemeLight.palette.grey[900]
+                : iThemeLight.palette.grey[50],
+          },
+          multiline: {
+            backgroundColor:
+              mode === "dark"
+                ? iThemeLight.palette.grey[900]
+                : iThemeLight.palette.grey[50],
+          },
+        },
+      },
+    },
     palette: {
       mode,
       primary: {
@@ -40,6 +61,12 @@ export const useTheme = (defaultMode?: PaletteMode) => {
         main: secondary[600],
         dark: secondary[800],
         contrastText: grey[900],
+      },
+      background: {
+        default:
+          mode === "dark"
+            ? iThemeDark.palette.background.paper
+            : iThemeLight.palette.grey[100],
       },
     },
   });
