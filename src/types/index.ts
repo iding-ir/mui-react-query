@@ -7,6 +7,7 @@ export interface IStory {
   content: string;
   [key: string]: string;
 }
+
 export interface Styles {
   [key: string]: SxProps<Theme>;
 }
