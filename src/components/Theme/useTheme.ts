@@ -33,13 +33,7 @@ export const useTheme = (defaultMode?: PaletteMode) => {
     components: {
       MuiOutlinedInput: {
         styleOverrides: {
-          input: {
-            backgroundColor:
-              mode === "dark"
-                ? iThemeLight.palette.grey[900]
-                : iThemeLight.palette.grey[50],
-          },
-          multiline: {
+          root: {
             backgroundColor:
               mode === "dark"
                 ? iThemeLight.palette.grey[900]
