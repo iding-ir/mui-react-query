@@ -24,6 +24,7 @@ const Navbar = () => {
       return (
         navbar && (
           <Typography
+            key={key}
             variant="h6"
             noWrap
             component="div"
