@@ -8,7 +8,6 @@ import { useLanguage, LanguageContext } from "../Language/useLanguage";
 import { useSearch, SearchContext } from "../Search/useSearch";
 import { useDialog, DialogContext } from "../Dialog/useDialog";
 import { useSnackbar, SnackbarContext } from "../Snackbar/useSnackbar";
-import { usePages, PagesContext } from "../Pages/usePages";
 
 const queryClient = new QueryClient();
 
@@ -22,26 +21,23 @@ const Providers = ({ children }: IProps) => {
   const searchValues = useSearch();
   const dialogValues = useDialog();
   const snackbarValues = useSnackbar();
-  const pagesValues = usePages();
 
   return (
     <QueryClientProvider client={queryClient}>
       <HelmetProvider>
-        <PagesContext.Provider value={pagesValues}>
-          <SnackbarContext.Provider value={snackbarValues}>
-            <DialogContext.Provider value={dialogValues}>
-              <SearchContext.Provider value={searchValues}>
-                <LanguageContext.Provider value={languageValues}>
-                  <ThemeContext.Provider value={themeValues}>
-                    <ThemeProvider theme={themeValues.theme}>
-                      {children}
-                    </ThemeProvider>
-                  </ThemeContext.Provider>
-                </LanguageContext.Provider>
-              </SearchContext.Provider>
-            </DialogContext.Provider>
-          </SnackbarContext.Provider>
-        </PagesContext.Provider>
+        <SnackbarContext.Provider value={snackbarValues}>
+          <DialogContext.Provider value={dialogValues}>
+            <SearchContext.Provider value={searchValues}>
+              <LanguageContext.Provider value={languageValues}>
+                <ThemeContext.Provider value={themeValues}>
+                  <ThemeProvider theme={themeValues.theme}>
+                    {children}
+                  </ThemeProvider>
+                </ThemeContext.Provider>
+              </LanguageContext.Provider>
+            </SearchContext.Provider>
+          </DialogContext.Provider>
+        </SnackbarContext.Provider>
       </HelmetProvider>
     </QueryClientProvider>
   );
