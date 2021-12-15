@@ -3,7 +3,8 @@ import Typography from "@mui/material/Typography";
 import { Link } from "react-router-dom";
 import { Trans } from "react-i18next";
 
-import { routes, IRoute } from "../Pages/routes";
+import { routes } from "../../routes";
+import { IRoute } from "../../types";
 import { PagesContext } from "../Pages/usePages";
 import { styles } from "./styles";
 
