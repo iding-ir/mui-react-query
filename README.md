@@ -3,7 +3,7 @@ For the Redux Toolkit version visit [this repository](https://github.com/iding-i
 ## Index
 
 - [Intro](#intro)
-- [Tech stack](#tech-stack)
+- [Tech Stack](#tech-stack)
 - [Demo](#demo)
 
 ## Intro
@@ -16,6 +16,7 @@ Story to PDF uses a [mockAPI](https://mockapi.io/) RESTful API to create stories
 - [React Context API](https://reactjs.org/docs/context.html)
 - [React Query](https://react-query.tanstack.com)
 - [React Hook Form](https://react-hook-form.com)
+- [MUI](https://mui.com)
 
 ## Demo
 
