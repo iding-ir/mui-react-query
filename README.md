@@ -12,6 +12,7 @@ Story to PDF uses a [mockAPI](https://mockapi.io/) RESTful API to create stories
 
 ## Tech Stack
 
+- [Typescript](https://www.typescriptlang.org/)
 - [React](https://reactjs.org)
 - [React Context API](https://reactjs.org/docs/context.html)
 - [React Query](https://react-query.tanstack.com)
