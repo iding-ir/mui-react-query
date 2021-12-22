@@ -1,4 +1,3 @@
-import { ReactNode } from "react";
 import { useContext } from "react";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
@@ -7,33 +6,9 @@ import ListItemIcon from "@mui/material/ListItemIcon";
 import Select, { SelectChangeEvent } from "@mui/material/Select";
 import { useTranslation } from "react-i18next";
 
-import { ReactComponent as IconEN } from "../../assets/images/icon-en.svg";
-import { ReactComponent as IconES } from "../../assets/images/icon-es.svg";
 import { LanguageContext } from "./useLanguage";
+import { languages, ILanguage } from ".";
 import { styles } from "./styles";
-
-export interface ILanguage {
-  value: string;
-  name: string;
-  icon: ReactNode;
-}
-
-export interface ILanguages {
-  [key: string]: ILanguage;
-}
-
-export const languages: ILanguages = {
-  en: {
-    value: "en",
-    name: "Language.en",
-    icon: <IconEN />,
-  },
-  es: {
-    value: "es",
-    name: "Language.es",
-    icon: <IconES />,
-  },
-};
 
 const Language = () => {
   const { t } = useTranslation();
@@ -41,7 +16,7 @@ const Language = () => {
   const { language, setLanguage } = useContext(LanguageContext);
 
   const handleChange = (event: SelectChangeEvent) => {
-    const language = event.target.value as string;
+    const language = event.target.value;
 
     setLanguage(language);
   };

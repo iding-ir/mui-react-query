@@ -1,4 +1,4 @@
-import { languages, ILanguage } from "./Language";
+import { languages, ILanguage } from ".";
 
 const getLanguage = (defaultLanguage: string | undefined) => {
   const storedLanguage = localStorage.getItem("language");
