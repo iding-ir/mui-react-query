@@ -1,6 +1,6 @@
 import { PaletteMode } from "@mui/material";
 
-const getMode = (defaultMode: PaletteMode | undefined) => {
+const getMode = (defaultMode?: PaletteMode) => {
   const storedMode = localStorage.getItem("mode") as PaletteMode;
 
   const fallbackMode = "dark";

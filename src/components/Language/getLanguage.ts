@@ -1,6 +1,6 @@
 import { languages, ILanguage } from ".";
 
-const getLanguage = (defaultLanguage: string | undefined) => {
+const getLanguage = (defaultLanguage?: string) => {
   const storedLanguage = localStorage.getItem("language");
 
   const browserLanguage = navigator.language.toLowerCase();
